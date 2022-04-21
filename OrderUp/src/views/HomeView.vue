@@ -1,9 +1,22 @@
-<script setup>
-import TheWelcome from "@/components/TheWelcome.vue";
+<script>
+import HomeInfo from "../components/HomeInfo.vue"
+
+export default {
+  name: 'HomeView',
+  components: {
+    HomeInfo
+  }
+}
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="home">
+    this is the home page yeah
+  </div>
 </template>
+
+<style scoped lang="scss">
+.home{
+  margin: 1rem;
+}
+</style>
