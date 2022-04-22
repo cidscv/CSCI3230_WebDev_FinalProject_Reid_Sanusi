@@ -1,3 +1,9 @@
+<template>
+  <div class="home">
+    this is the home page yeah
+  </div>
+</template>
+
 <script>
 import HomeInfo from "../components/HomeInfo.vue"
 
@@ -8,12 +14,6 @@ export default {
   }
 }
 </script>
-
-<template>
-  <div class="home">
-    this is the home page yeah
-  </div>
-</template>
 
 <style scoped lang="scss">
 .home{

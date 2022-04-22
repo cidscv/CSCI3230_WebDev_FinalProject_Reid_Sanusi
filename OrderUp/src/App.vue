@@ -1,20 +1,18 @@
+<template>
+  <AppHeader />
+  <router-view />
+</template>
+
 <script>
 import AppHeader from './components/AppHeader.vue'
-import HomeView from './views/HomeView.vue'
 
 export default {
   name: 'App',
   components:{
     AppHeader,
-    HomeView
-}
+  }
 }
 </script>
-
-<template>
-  <AppHeader />
-  <HomeView />
-</template>
 
 <style lang="scss">
 

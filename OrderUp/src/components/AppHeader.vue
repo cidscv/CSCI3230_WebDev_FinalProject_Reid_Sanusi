@@ -1,8 +1,16 @@
 <template>
     <div id="header">
-        <title>ORDER UP</title>
+        <div id="title">
+            Order Up
+        </div>
     </div>
 </template>
+
+<script>
+export default{
+    name: 'AppHeader'
+}
+</script>
 
 <style lang="scss">
 #header {
@@ -10,6 +18,9 @@
 }
 
 #title {
-    font-size: large;
+    font-size: 50px;
+    color: white;
+    text-align: left;
+    padding: 25px;
 }
 </style>
