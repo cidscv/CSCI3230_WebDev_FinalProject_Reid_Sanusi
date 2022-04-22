@@ -3,6 +3,7 @@
         <img src="../assets/login_img.jpg" alt="login splash">
         <div class="form">
             <form @submit.prevent="login">
+                <h1>Login!</h1>
                 <p> Username: </p>
                 <input type="text" v-model="username" name="username" placeholder="Username" required/>
                 <br>

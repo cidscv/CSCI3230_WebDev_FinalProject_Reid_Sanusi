@@ -1,8 +1,9 @@
 <template>
-    <div class="loginCon">
-        <img src="../assets/register_img.jpg" alt="login splash">
+    <div class="registerCon">
+        <img src="../assets/register_img.jpg" alt="register-splash">
         <div class="form">
             <form @submit.prevent="register">
+                <h1>Register!</h1>
                 <p> Username: </p>
                 <input type="text" v-model="username" name="username" placeholder="Username" required/>
                 <br>
@@ -21,7 +22,7 @@
 
 <style lang="scss">
 
-.loginCon {
+.registerCon {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     grid-auto-rows: minmax(min-content, max-content);
