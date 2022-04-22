@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import ContactUsView from '../views/ContactUsView.vue'
+import AccountView from '../views/AccountView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,11 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: ContactUsView,
+      meta: { header: false },
+    },{
+      path: '/account',
+      name: 'account',
+      component: AccountView,
       meta: { header: false },
     }
   ],

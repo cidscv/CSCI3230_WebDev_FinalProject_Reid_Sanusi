@@ -2,70 +2,39 @@
   <div class="home">
     List of Restaurants
   </div>
-  <table>
-    <tr>
-      <td>
+  <div class="rests">
+
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-    </tr>
-    <tr>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-    </tr>
-        <tr>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
         <RestaurantInfo />
-      </td>
-      <td>
-        <RestaurantInfo />
-      </td>
-      <td>
-        <RestaurantInfo />
-      </td>
-    </tr>
-  </table>
+  </div>
+      
 </template>
 
+<style>
+
+.rests{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+</style>
 <script>
 import HomeInfo from "../components/HomeInfo.vue"
 import RestaurantInfo from "../components/RestaurantInfo.vue"
