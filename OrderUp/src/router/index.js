@@ -12,14 +12,16 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       meta: { header: true },
-    },{
-      path: '/login',
-      name: 'login',
+    },
+    {
+      path: "/login",
+      name: "login",
       component: LoginView,
       meta: { header: false },
-    },{
-      path: '/register',
-      name: 'register',
+    },
+    {
+      path: "/register",
+      name: "register",
       component: RegisterView,
       meta: { header: false },
     },{
@@ -30,6 +32,5 @@ const router = createRouter({
     }
   ],
 });
-
 
 export default router;
