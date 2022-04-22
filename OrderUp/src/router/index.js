@@ -34,7 +34,7 @@ const router = createRouter({
       path: '/account',
       name: 'account',
       component: AccountView,
-      meta: { header: false },
+      meta: { header: true },
     }
   ],
 });

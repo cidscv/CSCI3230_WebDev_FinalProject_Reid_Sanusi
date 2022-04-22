@@ -1,28 +1,87 @@
 <template>
-    <div class="contactCon">
-        <div class="info">
-            <h2><b>
-                FOOD. <br> 
-                LETS TALK ABOUT <br> 
-                ANY ISSUES YOU HAVE <br> 
-                ALONG THE WAY.</b>
-            </h2>
+    <div class="detail">
+        <h1>My Account</h1>
+        <p>Hello Owen!</p>
+        <p>You can manage your orders and information here.</p>
+
+        <div class="navigations">
+            <button @click="order"   class="orders">Orders</button>
+            <button @click="info"   class="info">Personal information</button>
+            <button @click="paydets"   class="payments">Payment Details</button>
+
         </div>
-        <div class="form">
+    </div>
+    <div>
+        <div class="orders">
+            <table>
+                <thead>
+                    <td>Order ID</td>
+                    <td>Date</td>
+                    <td>Total</td>
+                    <td>Action</td>
+                </thead>
+                <tbody>
+                    <td>1</td>
+                    <td>May 3rd, 2022</td>
+                    <td>$332.68</td>
+                    <td><Button>View</Button></td>
+                </tbody>
+            </table>
+        </div>
+        <div class="personalInfo">
             <form>
-                <h1>Contact Us</h1>
-                <p>Name:</p>
-                <input type="text"  name="Name" placeholder="Name" required/>
-                <br>
-                <p>Phone Number:</p>
-                <input type="text"  name="Number" placeholder="Number" required/>
-                <br>
-                <p>Subject:</p>
-                <input type="text"  name="Subject" placeholder="Subject" required/>
-                <br>
-                <p>Description:</p>
-                <textarea type="text"  name="Description" placeholder="Description" required/>
-                <br>
+                <div class="split left">
+                    <p>First Name:</p>
+                    <input type="text"  name="firstName" placeholder="firstName" required/>
+                    <br>
+                    <p>Phone Number:</p>
+                    <input type="text"  name="Number" placeholder="Number" required/>
+                    <br>
+                    <p>City:</p>
+                    <input type="text"  name="City" placeholder="City" required/>
+                    <br>
+                    <p>Postal Code:</p>
+                    <input type="text"  name="Postal Code" placeholder="Postal Code" required/>
+                    <br>
+                </div>
+                <div class="split left">
+                    <p>Last Name:</p>
+                    <input type="text"  name="lastName" placeholder="lastName" required/>
+                    <br>
+                    
+                    <p>Email Address</p>
+                    <input type="text"  name="emai" placeholder="emai" required/>
+                    <br>
+                
+                    <p>State:</p>
+                    <input type="text"  name="State" placeholder="State" required/>
+                    <br>
+                
+                    <p>Country:</p>
+                    <input type="text"  name="Country" placeholder="Country" required/>
+                    <br>
+                </div>
+                
+               
+                <button class="btn"> SHOOT YOUR MESSAGE </button>
+            </form>
+        </div>
+
+        <div class="card">
+            <form>
+                    <p>Card Number:</p>
+                    <input type="text"  name="firstName" placeholder="firstName" required/>
+                    <br>
+                    <p>Exp Date:</p>
+                    <input type="text"  name="Number" placeholder="Number" required/>
+                    <br>
+                    <p>City:</p>
+                    <input type="text"  name="City" placeholder="City" required/>
+                    <br>
+                    <p>Cvv:</p>
+                    <input type="text"  name="Postal Code" placeholder="Postal Code" required/>
+                    <br>
+               
                 <button class="btn"> SHOOT YOUR MESSAGE </button>
             </form>
         </div>
@@ -31,92 +90,77 @@
 </template>
 
 <style lang="scss">
-
-.contactCon {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-auto-rows: minmax(min-content, max-content);
-    height: 100vh;
-    width: 100vw;
-
-   .info{
-        display: inline-grid;
-        align-items: center;
-        background-color: beige;
-        height: 100vh;
-        h2{
-            font-size: 40pt;
-            font-weight: 600;
-            text-align: left;
-            margin: 0 auto;
-            text-shadow: 0.5px 0 currentColor;
-            line-height: 70px;
-
-        }
-   }
-   .form{
-       background-color: beige;
-        display: inline-grid;
-        align-items: center;
-        text-align: left;
-        padding: 85px;
-        p{
-            font-weight: 600;
-        }
-        input{
-            width: 100%;
-            height: 40px;
-            border: none;
-            outline: none;
-            border-bottom:1px solid rgb(0, 46, 0);
-            transition: border-bottom 0.1s;
-            
-            background-color: transparent;
-        }
-        input:hover{
-            border-bottom: 2px solid rgb(46, 133, 46);
-        }
-        input:active{
-            border-bottom: 2px solid rgb(46, 133, 46);
-
-        }
-        textarea{
-            width: 100%;
-            resize: vertical;
-            height: 40px;
-            border: none;
-            outline: none;
-            border-bottom:1px solid rgb(0, 46, 0);
-            transition: border-bottom 0.1s;
-            
-            background-color: transparent;
-        }
+.personalInfo{
+    form{
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        grid-auto-rows: minmax(min-content, max-content);
+    }
+}
+.detail{
+    background-color: beige;
+    height: 20vh;
+    .navigations{
+        display: flex;
+        align-content: center;
+        justify-content: center;
         button{
-            margin: 40px 0 20px 0;
-            width: 100%;
-            height: 40px;
-            border: none;
-            font-size: 12pt;
-            background-color: rgb(0, 46, 0);
+            background-color: darkgreen;
+            width: 200px;
+            height:50px;
             color: white;
-            transition: background-color 0.1s;
-
+            border: none;
+            z-index: 9999;
         }
         button:hover{
-            background-color: rgb(46, 133, 46);
+            background-color: rgb(32, 139, 32);
             cursor: pointer;
         }
-
-        a{
-            padding-top: 20px;
-            text-decoration-line: none;
-            font-style: italic;
-            color: rgb(46, 133, 46);
-        }
-        a:hover{
-            color: rgb(153, 192, 85);
-        }
-   }
+    }
 }
 
 </style>
+
+<script>
+    import $ from "jquery";
+    
+    export default {
+        name: "Account",
+        data(){
+            return{
+                username: "Bret",
+                password: "hildegard.org",
+                errorMessage: ""
+            }
+        },
+        methods: {
+            
+            order: function(){
+                $('.orders').click(function(){
+                    $('.orders').show()
+                    $('.personalInfo').hide()
+                    $('.card').hide()
+                })
+            },
+            info: function(){
+                $('.personalInfo').click(function(){
+                    console.log('personalInfo')
+
+                    $('.personalInfo').show()
+                    $('.orders').hide()
+                    $('.card').hide()
+                })
+            },
+            paydets: function(){
+                $('.card').click(function(){
+                    console.log('card')
+
+                    $('.card').show()
+                    $('.orders').hide()
+                    $('.personalInfo').hide()
+                })
+            },
+           
+        },
+    }
+</script>

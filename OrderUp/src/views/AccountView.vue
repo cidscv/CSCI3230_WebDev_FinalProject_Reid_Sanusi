@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ContactUs />
+    <Account />
   </div>
 </template>
 
