@@ -4,7 +4,7 @@
             Order Up
         </div>
         <div id="profile">
-            Owen Reid
+            <a href="/account">Owen Reid</a> 
         </div>
     </div>
 </template>
@@ -34,8 +34,15 @@ export default{
 }
 
 #profile {
-    font-size: 20px;
-    color: white;
+    a{
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+    }
+    a:hover{
+        cursor: pointer;
+    }
+    
     text-align: right;
     padding: 25px;
 }

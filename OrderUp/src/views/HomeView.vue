@@ -20,6 +20,8 @@
         <RestaurantInfo />
         <RestaurantInfo />
         <RestaurantInfo />
+        <RestaurantInfo />
+        <RestaurantInfo />
   </div>
       
 </template>
@@ -30,8 +32,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: baseline;
+    margin: 0 auto;
 }
 
 </style>
