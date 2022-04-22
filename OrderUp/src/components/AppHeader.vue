@@ -17,8 +17,12 @@ export default{
 
 <style lang="scss">
 #header {
+    width: 100%;
     background-color: black;
     display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: nowrap;
 }
 
@@ -27,7 +31,6 @@ export default{
     color: white;
     text-align: left;
     padding: 25px;
-    padding-right: 1500px;
 }
 
 #profile {
