@@ -19,9 +19,6 @@
 
 <style lang="scss">
 
-#header{
-    display: none;
-}
 .loginCon {
     display: grid;
     grid-template-columns: 1.5fr 1fr;

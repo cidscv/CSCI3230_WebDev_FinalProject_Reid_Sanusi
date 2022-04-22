@@ -1,5 +1,6 @@
 <template>
-  <AppHeader />
+  <AppHeader v-if="$route.meta.header" />
+
   <router-view />
 </template>
 
@@ -16,8 +17,8 @@ export default {
 
 <style lang="scss">
 body{
-    padding: 0;
-    margin: 0;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
