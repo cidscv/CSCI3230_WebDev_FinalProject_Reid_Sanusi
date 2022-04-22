@@ -25,7 +25,7 @@ export default{
     font-size: 20px;
 }
 
-img {
+.mcphoto {
     padding: 20px;
     height: 200px;
 }

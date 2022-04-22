@@ -4,13 +4,15 @@
         <div class="form">
             <form @submit.prevent="login">
                 <p> Username: </p>
-                <input type="text" v-model="username" name="username" placeholder="Username"/>
+                <input type="text" v-model="username" name="username" placeholder="Username" required/>
                 <br>
                 <p> Password: </p>
-                <input type="password" v-model="password" name="password" placeholder="Password"/>
+                <input type="password" v-model="password" name="password" placeholder="Password" required/>
+
                 <div v-if="errorMessage"> {{errorMessage}} </div>
                 <br>
                 <button class="btn"> Login </button>
+                <a href="/register">Don't have an account?</a>
             </form>
         </div>
     </div>
@@ -56,7 +58,7 @@
 
         }
         button{
-            margin-top: 40px;
+            margin: 40px 0 20px 0;
             width: 100%;
             height: 40px;
             border: none;
@@ -69,6 +71,15 @@
         button:hover{
             background-color: rgb(46, 133, 46);
             cursor: pointer;
+        }
+        a{
+            padding-top: 20px;
+            text-decoration-line: none;
+            font-style: italic;
+            color: rgb(46, 133, 46);
+        }
+        a:hover{
+            color: rgb(153, 192, 85);
         }
    }
 }
