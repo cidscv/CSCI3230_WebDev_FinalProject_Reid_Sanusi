@@ -1,7 +1,7 @@
 <template>
     <div id="header">
         <div id="title">
-            Order Up
+            <a href="/">Order Up</a>
         </div>
         <div id="profile">
             <a href="/account">Owen Reid</a> 
@@ -27,9 +27,16 @@ export default{
 
 #title {
     font-size: 50px;
-    color: white;
     text-align: left;
     padding: 25px;
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        cursor: pointer;
+    }
 }
 
 #profile {

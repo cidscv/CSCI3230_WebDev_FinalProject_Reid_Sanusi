@@ -26,13 +26,13 @@
                     <tr>
                         <td>1</td>
                         <td>May 3rd, 2022</td>
-                        <td>$332.68</td>
+                        <td>$32.68</td>
                         <td><button>View</button></td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>May 3rd, 2022</td>
-                        <td>$332.68</td>
+                        <td>$32.68</td>
                         <td><button>View</button></td>
                     </tr>
                 </tbody>
