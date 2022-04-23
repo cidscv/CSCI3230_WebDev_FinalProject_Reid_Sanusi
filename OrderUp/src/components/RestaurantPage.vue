@@ -7,10 +7,10 @@
             </p>
         </div>
         <div id="nav">
-            <div id="cat">Burgers</div>
-            <div id="cat">Drinks</div>
-            <div id="cat">Chicken</div>
-            <div id="cat">Snacks</div>
+            <a href="/mcdonalds" id="cat">Burgers</a>
+            <a href="/mcdonalds" id="cat">Drinks</a>
+            <a href="/mcdonalds" id="cat">Chicken</a>
+            <a href="/mcdonalds" id="cat">Snacks</a>
         </div>
     </div>
 
@@ -61,10 +61,16 @@ export default{
 #nav {
     padding-bottom: 20px;
     font-weight: bold;
-    color: white;
     font-size: 25px;
     display: flex;
     flex-direction: row;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        cursor: pointer;
+    }
 }
 
 #cat {
