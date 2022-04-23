@@ -2,7 +2,7 @@
     <div class="detail">
         <h1>My Account</h1>
         <p>Hello Owen!</p>
-        <p>You can manage your orders and information here.</p>
+        <p>You can manage your orders and information here.<br>Please click on one of the buttons below.</p>
 
         <div class="navigations">
             <button @click="visDivs('orders')" class="orders">Orders</button>
