@@ -20,7 +20,6 @@ export default{
     width: 100%;
     background-color: black;
     display: flex;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
@@ -42,7 +41,6 @@ export default{
     a:hover{
         cursor: pointer;
     }
-    
     text-align: right;
     padding: 25px;
 }

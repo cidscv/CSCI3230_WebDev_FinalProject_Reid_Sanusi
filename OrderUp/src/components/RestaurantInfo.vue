@@ -1,7 +1,7 @@
 <template>
     <div id="rest">
         <div id="name">
-            McDonalds | $1.99
+            <a href="/mcdonalds">McDonalds | $1.99</a> 
         </div>
         <div id="photo">
             <img alt="Mcphoto" src="../assets/mcphoto.png" class="mcphoto"/>
@@ -22,7 +22,15 @@ export default{
 }
 
 #name {
-    font-size: 20px;
+    padding: 10px;
+    a{
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+    }
+    a:hover{
+        cursor: pointer;
+    }
 }
 
 .mcphoto {

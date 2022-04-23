@@ -3,15 +3,6 @@
     List of Restaurants
   </div>
   <div class="rests">
-
-        <RestaurantInfo />
-        <RestaurantInfo />
-        <RestaurantInfo />
-        <RestaurantInfo />
-        <RestaurantInfo />
-        <RestaurantInfo />
-        <RestaurantInfo />
-        <RestaurantInfo />
         <RestaurantInfo />
         <RestaurantInfo />
         <RestaurantInfo />
@@ -23,7 +14,6 @@
         <RestaurantInfo />
         <RestaurantInfo />
   </div>
-      
 </template>
 
 <style>
@@ -33,6 +23,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    justify-content: space-evenly;
     align-items: baseline;
     margin: 0 auto;
 }

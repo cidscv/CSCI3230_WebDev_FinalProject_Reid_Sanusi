@@ -14,11 +14,22 @@
         </div>
     </div>
 
+    <div id="menu">
+        <MenuItem />
+        <MenuItem />
+        <MenuItem />
+        <MenuItem />
+    </div>
+
 </template>
 
 <script>
+import MenuItem from "../components/MenuItem.vue"
 export default{
-    name: 'RestaurantPage'
+    name: 'RestaurantPage',
+    components: {
+        MenuItem
+  }
 }
 </script>
 
@@ -28,6 +39,7 @@ export default{
     background-color: black;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 #restinfo {
@@ -57,5 +69,12 @@ export default{
 
 #cat {
     padding-left: 20px;
+}
+
+#menu {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
 }
 </style>
