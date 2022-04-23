@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-
+const router  = express.Router(); 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://root:Password1.@orderup.cmbes.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -32,10 +32,14 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 // simple route
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+const restaurantController = require('./controllers/restaurantController'); 
+// router.get('/', restaurantController.newTea); 
+
+app.get("/", restaurantController.newTea);
 // set port, listen for requests
+
+module.exports = router; // export to use in server.js
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
