@@ -30,13 +30,11 @@
 
 </style>
 <script>
-import HomeInfo from "../components/HomeInfo.vue"
 import RestaurantInfo from "../components/RestaurantInfo.vue"
 
 export default {
   name: 'HomeView',
   components: {
-    HomeInfo,
     RestaurantInfo
   }
 }

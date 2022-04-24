@@ -5,20 +5,60 @@
             <form @submit.prevent="register">
                 <h1>Register!</h1>
                 <p> Username: </p>
-                <input type="text" v-model="username" name="username" placeholder="Username" required/>
+                <input type="text" placeholder="Username" id="username" required v-model="user.username" name="username"/>
                 <br>
                 <p> Password: </p>
-                <input type="password" v-model="password" name="password" placeholder="Password" required/>
+                <input type="password" placeholder="Password" id="password" required v-model="user.password" name="password"/>
 
                 <div v-if="errorMessage"> {{errorMessage}} </div>
                 <br>
-                <button class="btn"> Register </button>
+                <button @click="saveUser" class="btn"> Register </button>
                 <a href="/login">Have an account?</a>
             </form>
         </div>
     </div>
-    
 </template>
+
+<script>
+import UserDataService from "../services/UserDataService";
+export default {
+  name: "add-user",
+  data() {
+    return {
+      user: {
+        id: null,
+        username: "",
+        password: "",
+        active: false
+      },
+      submitted: false
+    };
+  },
+  methods: {
+    saveUser() {
+      var data = {
+        username: this.user.username,
+        password: this.user.password
+      };
+      UserDataService.create(data)
+        .then(response => {
+          this.user.id = response.data.id;
+          console.log(response.data);
+          this.submitted = true;
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    
+    newUser() {
+      this.submitted = false;
+      this.user = {};
+    }
+  }
+};
+    
+</script>
 
 <style lang="scss">
 
@@ -86,41 +126,3 @@
 }
 
 </style>
-
-<script>
-
-    import auth from '../js/auth';
-    export default {
-        name: "RegisterForm",
-        data(){
-            return{
-                username: "Bret",
-                password: "hildegard.org",
-                errorMessage: ""
-            }
-        },
-        methods:{
-            register(){
-                const user = this.username
-                console.log('Call login()');
-                auth.login(this.username, this.password, (res) => {
-                    if (res.auth){
-                        //Login succesful, go to home page.
-                        console.log('Login success');
-                        
-                        this.$router.push({
-                            name: 'home',
-                            params: {
-                                user: user
-                            }
-                        })
-                    } else{
-                        //Login failed.
-                        console.log('Login failed');
-                        this.errorMessage = "Login failed";
-                    }
-                })
-            }
-        }
-    }
-</script>

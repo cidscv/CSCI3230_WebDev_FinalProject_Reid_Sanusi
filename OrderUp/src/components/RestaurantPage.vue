@@ -24,23 +24,12 @@
 </template>
 
 <script>
-import MenuItem from "../components/MenuItem.vue"
-import { getAllUsers } from "../services/UserService"
+import MenuItem from "./MenuItem.vue"
 
 export default{
     name: 'RestaurantPage',
     components: {
         MenuItem
-  },
-  methods: {
-      getAllUsers() {
-          getAllUsers().then(response => {
-              console.log('response: ', response)
-          });
-      }
-  },
-  mounted() {
-      this.getAllUsers();
   }
 }
 </script>
