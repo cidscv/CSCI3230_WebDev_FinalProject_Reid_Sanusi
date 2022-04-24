@@ -11,6 +11,14 @@ exports.create = (req, res) => {
   const user = new User({
     username: req.body.username,
     password: req.body.password,
+    firstname: "",
+    phonenumber: "",
+    city: "",
+    postalcode: "",
+    lastname: "",
+    email: "",
+    state: "",
+    country: "",
     active: req.body.active ? req.body.active : false,
   });
   // Save user in the database
@@ -108,18 +116,6 @@ exports.deleteAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: err.message || "Some error occurred while removing all users.",
-      });
-    });
-};
-// Find all published users
-exports.findAllPublished = (req, res) => {
-  User.find({ published: true })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while retrieving users.",
       });
     });
 };

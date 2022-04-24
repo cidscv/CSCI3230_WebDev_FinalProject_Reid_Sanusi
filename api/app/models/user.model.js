@@ -3,6 +3,14 @@ module.exports = (mongoose) => {
     {
       username: String,
       password: String,
+      firstname: String,
+      phonenumber: String,
+      city: String,
+      postalcode: String,
+      lastname: String,
+      email: String,
+      state: String,
+      country: String,
       active: Boolean,
     },
     { timestamps: true }

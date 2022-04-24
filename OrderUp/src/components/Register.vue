@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import router from "../router";
 import UserDataService from "../services/UserDataService";
 export default {
   name: "add-user",
@@ -49,6 +50,8 @@ export default {
         .catch(e => {
           console.log(e);
         });
+      
+      router.push('/login')
     },
     
     newUser() {

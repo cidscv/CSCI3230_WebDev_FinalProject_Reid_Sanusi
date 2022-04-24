@@ -20,6 +20,50 @@
     
 </template>
 
+<script>
+
+    import UserDataService from "../services/UserDataService";
+    export default {
+        name: "LoginForm",
+        data(){
+            return{
+                user: null,
+                username: "Bret",
+                password: "hildegard.org",
+                errorMessage: ""
+            }
+        },
+        methods:{
+            login(){
+                const username = this.username
+                console.log('Call login()');
+
+                UserDataService.findByUsername(this.username).then(response => {
+                    this.user = response.data;
+                    console.log(this.user[0]["password"]);
+
+                    if (this.user[0]["password"] == this.password) {
+                        //Login succesful, go to home page.
+                        console.log('Login success');
+                        this.user[0]["active"] = true;
+                        UserDataService.update(this.user[0]["id"], this.user[0]);
+                        this.$router.push({
+                            name: 'home',
+                            params: {
+                                username: username
+                            }
+                        })
+                    } else {
+                        //Login failed.
+                        console.log('Login failed');
+                        this.errorMessage = "Login failed";
+                    }
+                })
+            }
+        }
+    }
+</script>
+
 <style lang="scss">
 
 .loginCon {
@@ -86,41 +130,3 @@
 }
 
 </style>
-
-<script>
-
-    import auth from '../js/auth';
-    export default {
-        name: "LoginForm",
-        data(){
-            return{
-                username: "Bret",
-                password: "hildegard.org",
-                errorMessage: ""
-            }
-        },
-        methods:{
-            login(){
-                const user = this.username
-                console.log('Call login()');
-                auth.login(this.username, this.password, (res) => {
-                    if (res.auth){
-                        //Login succesful, go to home page.
-                        console.log('Login success');
-                        
-                        this.$router.push({
-                            name: 'home',
-                            params: {
-                                user: user
-                            }
-                        })
-                    } else{
-                        //Login failed.
-                        console.log('Login failed');
-                        this.errorMessage = "Login failed";
-                    }
-                })
-            }
-        }
-    }
-</script>
