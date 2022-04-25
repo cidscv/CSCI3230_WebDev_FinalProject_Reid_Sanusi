@@ -36,7 +36,7 @@ export default {
   name: 'HomeView',
   components: {
     RestaurantInfo
-  }
+  },
 }
 </script>
 

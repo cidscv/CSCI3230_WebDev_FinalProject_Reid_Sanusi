@@ -42,7 +42,7 @@
             <form>
                 <div class="split left">
                     <p>First Name:</p>
-                    <input type="text"  name="firstName" placeholder="firstName" required/>
+                    <input type="text"  name="firstName" placeholder="First Name" required/>
                     <br>
                     <p>Phone Number:</p>
                     <input type="text"  name="Number" placeholder="Number" required/>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="split left">
                     <p>Last Name:</p>
-                    <input type="text"  name="lastName" placeholder="lastName" required/>
+                    <input type="text"  name="lastName" placeholder="Last Name" required/>
                     <br>
                     
                     <p>Email Address</p>
@@ -97,6 +97,50 @@
     </div>
     
 </template>
+
+<script>
+    import $ from "jquery";
+    
+    export default {
+        name: "Account",
+        props: {
+            user: Function
+        },
+        data(){
+            return{ 
+                 orderVisible: false,
+                 infoVisible: false,
+                 cardVisible: false,
+            }
+        },
+        methods: {
+            visDivs: function(ev){
+                this.orderVisible = false
+                this.infoVisible = false
+                this.cardVisible = false
+                $('.orders').removeClass('selected');
+                $('.info').removeClass('selected');
+                $('.payments').removeClass('selected');
+
+                 
+                if(ev == 'orders'){
+                    $('.orders').addClass('selected');
+                    this.orderVisible = true
+                }
+                if(ev == 'info'){
+                    $('.info').addClass('selected');
+                    this.infoVisible = true
+
+                }
+                if(ev == 'payments'){
+                    $('.payments').addClass('selected');
+                    this.cardVisible = true
+
+                }
+            },           
+        },
+    }
+</script>
 
 <style lang="scss">
 .personalInfo{
@@ -270,44 +314,3 @@
 }
 
 </style>
-
-<script>
-    import $ from "jquery";
-    
-    export default {
-        name: "Account",
-        data(){
-            return{ 
-                 orderVisible: false,
-                 infoVisible: false,
-                 cardVisible: false,
-            }
-        },
-        methods: {
-            visDivs: function(ev){
-                this.orderVisible = false
-                this.infoVisible = false
-                this.cardVisible = false
-                $('.orders').removeClass('selected');
-                $('.info').removeClass('selected');
-                $('.payments').removeClass('selected');
-
-                 
-                if(ev == 'orders'){
-                    $('.orders').addClass('selected');
-                    this.orderVisible = true
-                }
-                if(ev == 'info'){
-                    $('.info').addClass('selected');
-                    this.infoVisible = true
-
-                }
-                if(ev == 'payments'){
-                    $('.payments').addClass('selected');
-                    this.cardVisible = true
-
-                }
-            },           
-        },
-    }
-</script>

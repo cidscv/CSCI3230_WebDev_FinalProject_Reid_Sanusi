@@ -3,15 +3,44 @@
         <div id="title">
             <a href="/">Order Up</a>
         </div>
-        <div id="profile">
-            <a href="/account">Owen Reid</a> 
+        <div v-if="!isLoggedIn" id="profile">
+            <a href="/login">Login</a> 
         </div>
+        <div id="whenloggedin">
+            <div v-if="isLoggedIn" id="profile">
+                <router-link style="text-decoration: none;" to="/account" >Profile</router-link> 
+            </div>
+            <div v-if="isLoggedIn" id="profile">
+                <a v-on:click="logout" href="/">Logout</a> 
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script>
+import auth from "../js/auth"
+
 export default{
-    name: 'AppHeader'
+    name: 'AppHeader',
+    data(){
+        return{
+            isLoggedIn: auth.isLoggedIn(),
+        };
+    },
+
+    created(){
+        auth.onLoginStatus = isLoggedIn => {
+            this.isLoggedIn = isLoggedIn;
+        }
+    },
+    methods:{
+        logout: function(){
+            auth.logout( (res) =>{
+                console.log(res)
+            });
+        }
+    }
 }
 </script>
 
@@ -23,6 +52,11 @@ export default{
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+}
+
+#whenloggedin {
+    display: flex;
+    flex-direction: row;
 }
 
 #title {

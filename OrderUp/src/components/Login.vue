@@ -22,12 +22,13 @@
 
 <script>
 
-    import UserDataService from "../services/UserDataService";
+    import auth from '../js/auth';
+    var username;
+    var password;
     export default {
-        name: "LoginForm",
+        name: "Login",
         data(){
             return{
-                user: null,
                 username: "Bret",
                 password: "hildegard.org",
                 errorMessage: ""
@@ -35,30 +36,24 @@
         },
         methods:{
             login(){
-                const username = this.username
                 console.log('Call login()');
+                username = this.username;
+                password = this.password;
 
-                UserDataService.findByUsername(this.username).then(response => {
-                    this.user = response.data;
-                    console.log(this.user[0]["password"]);
-
-                    if (this.user[0]["password"] == this.password) {
+                auth.login(username, password, (res) => {
+                    if (res.auth){
                         //Login succesful, go to home page.
                         console.log('Login success');
-                        this.user[0]["active"] = true;
-                        UserDataService.update(this.user[0]["id"], this.user[0]);
-                        this.$router.push({
-                            name: 'home',
-                            params: {
-                                username: username
-                            }
-                        })
+                        this.$router.replace('/');
                     } else {
                         //Login failed.
                         console.log('Login failed');
                         this.errorMessage = "Login failed";
                     }
                 })
+            },
+            getUsername(){
+                return username;
             }
         }
     }
