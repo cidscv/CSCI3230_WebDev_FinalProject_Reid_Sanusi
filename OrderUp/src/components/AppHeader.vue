@@ -1,17 +1,17 @@
 <template>
     <div id="header">
         <div id="title">
-            <router-link  to="/">Order Up</router-link>
+            <router-link to="/">Order Up</router-link>
         </div>
         <div v-if="!isLoggedIn" id="profile">
-            <router-link  to="/login">Login</router-link> 
+            <router-link to="/login">Login</router-link> 
         </div>
         <div id="whenloggedin">
             <div v-if="isLoggedIn" id="profile">
                 <router-link style="text-decoration: none;" to="/account" >Profile</router-link> 
             </div>
             <div v-if="isLoggedIn" id="profile">
-                <router-link> v-on:click="logout" href="/">Logout</router-link> 
+                <router-link v-on:click="logout" to="/">Logout</router-link> 
             </div>
         </div>
 
