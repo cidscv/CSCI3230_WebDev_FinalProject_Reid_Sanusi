@@ -7,10 +7,10 @@
             </p>
         </div>
         <div id="nav">
-            <a href="/mcdonalds" id="cat">Burgers</a>
-            <a href="/mcdonalds" id="cat">Drinks</a>
-            <a href="/mcdonalds" id="cat">Chicken</a>
-            <a href="/mcdonalds" id="cat">Snacks</a>
+            <router-link  to="/mcdonalds" id="cat">Burgers</a>
+            <router-link  to="/mcdonalds" id="cat">Drinks</a>
+            <router-link  to="/mcdonalds" id="cat">Chicken</a>
+            <router-link  to="/mcdonalds" id="cat">Snacks</a>
         </div>
     </div>
 

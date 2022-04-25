@@ -13,7 +13,7 @@
                 <div v-if="errorMessage"> {{errorMessage}} </div>
                 <br>
                 <button class="btn"> Login </button>
-                <a href="/register">Don't have an account?</a>
+                <router-link  to="/register">Don't have an account?</a>
             </form>
         </div>
     </div>

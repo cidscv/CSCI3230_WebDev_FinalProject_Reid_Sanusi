@@ -1,7 +1,7 @@
 <template>
     <div id="rest">
         <div id="name">
-            <a href="/mcdonalds">McDonalds | $1.99</a> 
+            <router-link  to="/mcdonalds">McDonalds | $1.99</a> 
         </div>
         <div id="photo">
             <img alt="Mcphoto" src="../assets/mcphoto.png" class="mcphoto"/>

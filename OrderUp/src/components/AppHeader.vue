@@ -1,10 +1,10 @@
 <template>
     <div id="header">
         <div id="title">
-            <a href="/">Order Up</a>
+            <router-link  to="/">Order Up</a>
         </div>
         <div v-if="!isLoggedIn" id="profile">
-            <a href="/login">Login</a> 
+            <router-link  to="/login">Login</a> 
         </div>
         <div id="whenloggedin">
             <div v-if="isLoggedIn" id="profile">
