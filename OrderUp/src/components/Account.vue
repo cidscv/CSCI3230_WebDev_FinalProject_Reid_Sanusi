@@ -126,10 +126,10 @@
         methods: {
             update: function() {
                 this.user[0].firstname = this.firstName;
+                this.user[0].lastname = this.lastName;
                 this.user[0].phonenumber = this.number;
                 this.user[0].city = this.city;
                 this.user[0].postalcode = this.postalCode;
-                this.user[0].lastname = this.lastName;
                 this.user[0].email = this.email;
                 this.user[0].state = this.state;
                 this.user[0].country = this.country;

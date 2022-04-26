@@ -7,6 +7,9 @@
                 <p> Username: </p>
                 <input type="text" placeholder="Username" id="username" required v-model="user.username" name="username"/>
                 <br>
+                <p> Email Address: </p>
+                <input type="text" placeholder="Email" id="email" required v-model="user.email" name="email"/>
+                <br>
                 <p> Password: </p>
                 <input type="password" placeholder="Password" id="password" required v-model="user.password" name="password"/>
 
@@ -30,6 +33,14 @@ export default {
         id: null,
         username: "",
         password: "",
+        firstName: "",
+        number: "",
+        city: "",
+        postalCode: "",
+        lastName: "",
+        email: "",
+        state: "",
+        country: "",
         active: false
       },
       submitted: false
@@ -39,7 +50,15 @@ export default {
     saveUser() {
       var data = {
         username: this.user.username,
-        password: this.user.password
+        password: this.user.password,
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        number: this.user.number,
+        city: this.user.city,
+        postalCode: this.user.postalCode,
+        email: this.user.email,
+        state: this.user.state,
+        country: this.user.country,
       };
       UserDataService.create(data)
         .then(response => {

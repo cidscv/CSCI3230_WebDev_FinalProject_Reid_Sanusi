@@ -1,6 +1,6 @@
 <template>
     <div class="restaurants">
-        <a href="/restaurant">
+        <router-link to="/restaurant">
             <div class="restaurantCard">
                 <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
                 <div class="content">
@@ -11,8 +11,8 @@
                     <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
                 </div>
             </div>
-        </a>
-        <a href="/restaurant">
+        </router-link>
+        <router-link to="/restaurant">
             <div class="restaurantCard">
                 <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
                 <div class="content">
@@ -23,8 +23,8 @@
                     <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
                 </div>
             </div>
-        </a>
-        <a href="/restaurant">
+        </router-link>
+        <router-link to="/restaurant">
             <div class="restaurantCard">
                 <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
                 <div class="content">
@@ -35,8 +35,8 @@
                     <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
                 </div>
             </div>
-        </a>
-        <a href="/restaurant">
+        </router-link>
+        <router-link to="/restaurant">
             <div class="restaurantCard">
                 <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
                 <div class="content">
@@ -47,8 +47,8 @@
                     <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
                 </div>
             </div>
-        </a>
-        <a href="/restaurant">
+        </router-link>
+        <router-link to="/restaurant">
             <div class="restaurantCard">
                 <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
                 <div class="content">
@@ -59,7 +59,8 @@
                     <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
                 </div>
             </div>
-        </a><a href="/restaurant">
+        </router-link>
+        <router-link to="/restaurant">
             <div class="restaurantCard">
                 <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
                 <div class="content">
@@ -70,7 +71,31 @@
                     <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
                 </div>
             </div>
-        </a>
+        </router-link>
+        <router-link to="/restaurant">
+            <div class="restaurantCard">
+                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
+                <div class="content">
+                    <p class="mainText">
+                        Restaurant name
+                    </p>
+                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
+                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
+                </div>
+            </div>
+        </router-link>
+        <router-link to="/restaurant">
+            <div class="restaurantCard">
+                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
+                <div class="content">
+                    <p class="mainText">
+                        Restaurant name
+                    </p>
+                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
+                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
+                </div>
+            </div>
+        </router-link>
     </div>
 
 </template>

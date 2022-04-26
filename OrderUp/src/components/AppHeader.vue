@@ -4,10 +4,10 @@
     <router-link to="/"> <img src="../assets/logo-07.png" alt="Order Up Logo"></router-link>
 
     <div class="links">
-        <a href="/">Home</a>
-        <a href="/restaurants">Restaurants</a>
-        <a href="#">Contact Us</a>
-        <a href="/login" v-if="!isLoggedIn">Login</a>
+        <router-link to="/">Home</router-link>
+        <router-link to="/restaurants">Restaurants</router-link>
+        <router-link to="/contact">Contact Us</router-link>
+        <router-link to="/login" v-if="!isLoggedIn">Login</router-link>
         <div v-if="isLoggedIn" id="whenloggedin">
             <router-link style="text-decoration: none;" to="/account" v-if="isLoggedIn">Profile</router-link> 
             <router-link v-on:click="logout" to="/" v-if="isLoggedIn">Logout</router-link> 
