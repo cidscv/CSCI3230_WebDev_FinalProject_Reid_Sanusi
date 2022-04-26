@@ -1,7 +1,7 @@
 <template>
     <div class="detail">
         <h1>My Account</h1>
-        <p>Hello Owen!</p>
+        <p>Hello</p>
         <p>You can manage your orders and information here.<br>Please click on one of the buttons below.</p>
 
         <div class="navigations">
@@ -41,39 +41,39 @@
         <div v-if="infoVisible" class="personalInfo">
             <form>
                 <div class="split left">
-                    <p>First Name:</p>
-                    <input type="text"  name="firstName" placeholder="First Name" required/>
+                    <p>First Name: {{user[0].firstname}}</p>
+                    <input type="text"  v-model="firstName" placeholder="First Name" required/>
                     <br>
-                    <p>Phone Number:</p>
-                    <input type="text"  name="Number" placeholder="Number" required/>
+                    <p>Phone Number: {{user[0].phonenumber}}</p>
+                    <input type="text"  v-model="number" placeholder="Number" required/>
                     <br>
-                    <p>City:</p>
-                    <input type="text"  name="City" placeholder="City" required/>
+                    <p>City: {{user[0].city}}</p>
+                    <input type="text"  v-model="city" placeholder="City" required/>
                     <br>
-                    <p>Postal Code:</p>
-                    <input type="text"  name="Postal Code" placeholder="Postal Code" required/>
+                    <p>Postal Code: {{user[0].postalcode}}</p>
+                    <input type="text"  v-model="postalCode" placeholder="Postal Code" required/>
                     <br>
                 </div>
                 <div class="split left">
-                    <p>Last Name:</p>
-                    <input type="text"  name="lastName" placeholder="Last Name" required/>
+                    <p>Last Name: {{user[0].lastname}}</p>
+                    <input type="text"  v-model="lastName" placeholder="Last Name" required/>
                     <br>
                     
-                    <p>Email Address</p>
-                    <input type="text"  name="emai" placeholder="emai" required/>
+                    <p>Email Address: {{user[0].email}}</p>
+                    <input type="text"  v-model="email" placeholder="Email" required/>
                     <br>
                 
-                    <p>State:</p>
-                    <input type="text"  name="State" placeholder="State" required/>
+                    <p>State: {{user[0].state}}</p>
+                    <input type="text"  v-model="state" placeholder="State" required/>
                     <br>
                 
-                    <p>Country:</p>
-                    <input type="text"  name="Country" placeholder="Country" required/>
+                    <p>Country: {{user[0].country}}</p>
+                    <input type="text"  v-model="country" placeholder="Country" required/>
                     <br>
                 </div>
                 
                
-                <button class="btn"> Update </button>
+                <button v-on:click="update" class="btn"> Update </button>
             </form>
         </div>
         <div v-if="cardVisible" class="card">
@@ -100,6 +100,7 @@
 
 <script>
     import $ from "jquery";
+    import UserDataService from "../services/UserDataService";
     
     export default {
         name: "Account",
@@ -108,12 +109,33 @@
         },
         data(){
             return{ 
-                 orderVisible: false,
-                 infoVisible: false,
-                 cardVisible: false,
+                firstName: "",
+                number: "",
+                city: "",
+                postalCode: "",
+                lastName: "",
+                email: "",
+                state: "",
+                country: "",
+                orderVisible: false,
+                infoVisible: false,
+                cardVisible: false,
             }
         },
+
         methods: {
+            update: function() {
+                this.user[0].firstname = this.firstName;
+                this.user[0].phonenumber = this.number;
+                this.user[0].city = this.city;
+                this.user[0].postalcode = this.postalCode;
+                this.user[0].lastname = this.lastName;
+                this.user[0].email = this.email;
+                this.user[0].state = this.state;
+                this.user[0].country = this.country;
+                console.log(this.user[0]);
+                UserDataService.update(this.user[0]["id"], this.user[0]);
+            },
             visDivs: function(ev){
                 this.orderVisible = false
                 this.infoVisible = false
