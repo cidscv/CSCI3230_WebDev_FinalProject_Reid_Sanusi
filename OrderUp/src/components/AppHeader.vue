@@ -1,21 +1,19 @@
 <template>
-    <div id="header">
-        <div id="title">
-            <router-link to="/">Order Up</router-link>
-        </div>
-        <div v-if="!isLoggedIn" id="profile">
-            <router-link to="/login">Login</router-link> 
-        </div>
-        <div id="whenloggedin">
-            <div v-if="isLoggedIn" id="profile">
-                <router-link style="text-decoration: none;" to="/account" >Profile</router-link> 
-            </div>
-            <div v-if="isLoggedIn" id="profile">
-                <router-link v-on:click="logout" to="/">Logout</router-link> 
-            </div>
-        </div>
 
+<div class="navigation">
+    <router-link to="/"> <img src="../assets/logo-07.png" alt="Order Up Logo"></router-link>
+
+    <div class="links">
+        <a href="/">Home</a>
+        <a href="/restaurants">Restaurants</a>
+        <a href="#">Contact Us</a>
+        <a href="/login" v-if="!isLoggedIn">Login</a>
+        <div v-if="isLoggedIn" id="whenloggedin">
+            <router-link style="text-decoration: none;" to="/account" v-if="isLoggedIn">Profile</router-link> 
+            <router-link v-on:click="logout" to="/" v-if="isLoggedIn">Logout</router-link> 
+        </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -45,44 +43,37 @@ export default{
 </script>
 
 <style lang="scss">
-#header {
-    width: 100%;
-    background-color: black;
+
+.navigation{
     display: flex;
-    justify-content: space-between;
+    padding: 20px 60px;
+    background-color: #f7f7f7;
     align-items: center;
-    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.navigation img{
+    width: 60px;
 }
 
-#whenloggedin {
-    display: flex;
-    flex-direction: row;
+.navigation .links{
+    display: inline-flex;
 }
-
-#title {
-    font-size: 50px;
-    text-align: left;
-    padding: 25px;
-
-    a{
-        text-decoration: none;
-        color: white;
-    }
-    a:hover{
-        cursor: pointer;
-    }
+.navigation .links a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14pt;
+    font-weight: 600;
+    transition: border-bottom 0.1s;
 }
-
-#profile {
-    a{
-        text-decoration: none;
-        font-size: 20px;
-        color: white;
-    }
-    a:hover{
-        cursor: pointer;
-    }
-    text-align: right;
-    padding: 25px;
+.navigation .links a:hover{
+    color: #0F4900;
+    border-bottom: 2px solid #59da38;
 }
+.navigation .links a:active{
+    color: #0F4900;
+    border-bottom: 2px solid #59da38;
+}
+    
+
 </style>
