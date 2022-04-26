@@ -4,7 +4,6 @@ import AccountView from "../views/AccountView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import ContactUsView from "../views/ContactUsView.vue";
-import RestaurantView from "../views/RestaurantView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,9 +39,9 @@ const router = createRouter({
       meta: { header: true },
     },
     {
-      path: "/mcdonalds",
-      name: "mcdonalds",
-      component: RestaurantView,
+      path: "/restaurants/:id",
+      name: "restaurant-details",
+      component: () => import("../components/RestaurantPage.vue"),
       meta: { header: false },
     },
   ],

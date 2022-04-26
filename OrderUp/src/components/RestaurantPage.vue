@@ -3,14 +3,14 @@
         <div id="restinfo">
             <img alt="Mcphoto" src="../assets/mcphoto.png" class="mcphoto"/>
             <p id="restname">
-                McDonalds
+                {{currentRestaurant.restName}}
             </p>
         </div>
         <div id="nav">
-            <router-link  to="/mcdonalds" id="cat">Burgers</router-link>
-            <router-link  to="/mcdonalds" id="cat">Drinks</router-link>
-            <router-link  to="/mcdonalds" id="cat">Chicken</router-link>
-            <router-link  to="/mcdonalds" id="cat">Snacks</router-link>
+            <p id="cat">Burgers</p>
+            <p id="cat">Drinks</p>
+            <p id="cat">Chicken</p>
+            <p id="cat">Snacks</p>
         </div>
     </div>
 
@@ -25,13 +25,37 @@
 
 <script>
 import MenuItem from "./MenuItem.vue"
+import RestaurantDataService from "../services/RestaurantDataService";
 
 export default{
     name: 'RestaurantPage',
     components: {
         MenuItem
+    },
+    data() {
+        return {
+            currentRestaurant: "",
+            message: ''
+        };
+  },
+  methods: {
+    getRestaurant(id) {
+      RestaurantDataService.get(id)
+        .then(response => {
+          this.currentRestaurant = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  },
+  mounted() {
+    this.message = '';
+    this.getRestaurant(this.$route.params.id);
   }
-}
+}; 
+
 </script>
 
 <style lang="scss">

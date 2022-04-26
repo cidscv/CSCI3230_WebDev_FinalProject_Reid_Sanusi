@@ -1,7 +1,7 @@
 <template>
     <div id="rest">
         <div id="name">
-            <router-link  to="/mcdonalds">McDonalds | $1.99</router-link> 
+            <router-link  to="/">{{restName}} | ${{price}}</router-link> 
         </div>
         <div id="photo">
             <img alt="Mcphoto" src="../assets/mcphoto.png" class="mcphoto"/>
@@ -11,7 +11,11 @@
 
 <script>
 export default{
-    name: 'RestaurantInfo'
+    name: 'RestaurantInfo',
+    props: {
+        restName: String,
+        price: String,
+    }
 }
 </script>
 
