@@ -24,7 +24,7 @@
             </p>
             <div class="cart__product js-cart-product-template">
                 <article class="js-cart-product">
-                <h1>{{title}} | ${{cartPrice}}</h1>
+                <h1>{{menuname}} | ${{price}}</h1>
                 <p>
                     <a @click="remove" class="js-remove-product" href="#" title="Delete product">
                     Delete product
@@ -47,24 +47,15 @@
 import cartMixin from "../js/cartMixin"
 export default {
     name: 'MenuItem',
-    data(){
-        return{
-            title: '',
-            cartPrice:0
-        }
-    },
     props: {
         menuname: String,
         price: String,
-        title: String,
-        cartPrice:Number,
     },
     mixins: [
         cartMixin
     ],
     methods: {
         add_prod(e) {
-            
             this.addProduct(e);
         },
         toggle: function(e) {

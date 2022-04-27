@@ -45,13 +45,20 @@ export default {
     mixins:[
         cartMixin
     ],
+    created(){
+        auth.onLoginStatus = isLoggedIn => {
+            this.isLoggedIn = isLoggedIn;
+        }
+    },
     methods: {
         cartdetails: function(data) {
             this.title = data.menuname
             this.price = data.price
         },
         logout: function(){
-            this.logout();
+            auth.logout( (res) =>{
+                console.log(res)
+            });
         },
         toggle: function(e) {
              this.toggleCart(e);
