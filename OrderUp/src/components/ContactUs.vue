@@ -9,19 +9,19 @@
             </h2>
         </div>
         <div class="form">
-            <form>
+            <form @submit.prevent="formsubmit">
                 <h1>Contact Us</h1>
                 <p>Name:</p>
-                <input type="text"  name="Name" placeholder="Name" required/>
+                <input type="text"  name="Name" v-model="name" placeholder="First Name" required/>
                 <br>
                 <p>Phone Number:</p>
-                <input type="text"  name="Number" placeholder="Number" required/>
+                <input type="text"  name="Number" v-model="number" placeholder="Phone Number" required/>
                 <br>
                 <p>Subject:</p>
-                <input type="text"  name="Subject" placeholder="Subject" required/>
+                <input type="text"  name="Subject" v-model="subject" placeholder="Subject" required/>
                 <br>
                 <p>Description:</p>
-                <textarea type="text"  name="Description" placeholder="Description" required/>
+                <textarea type="text"  name="Description" v-model="description" placeholder="Description" required/>
                 <br>
                 <button class="btn"> SHOOT YOUR MESSAGE </button>
             </form>
@@ -29,6 +29,30 @@
     </div>
     
 </template>
+
+<script>
+export default {
+    name: "ContactUs",
+    data(){
+        return{
+            name: "",
+            number: "",
+            subject: "",
+            description: "",
+        }
+    },
+    methods: {
+        formsubmit: function () {
+            this.name = "";
+            this.number = "";
+            this.subject = "";
+            this.description = "";
+            alert("Thank you for contacting us, we value your comments.");
+        }
+    }
+}
+</script>
+
 
 <style lang="scss">
 
