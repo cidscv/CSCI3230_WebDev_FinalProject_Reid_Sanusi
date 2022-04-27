@@ -6,18 +6,27 @@
                     {{menuname}}
                 </p>
                 <p class="metaText"> ${{price}}</p>
-                <button class="addToCart js-add-product"> Add to Cart</button>
+                <a @click="add_prod" class="addToCart js-add-product"> Add to Cart</a>
             </div>
         </div>
 </template>
 
 <script>
+import cartMixin from "../js/cartMixin"
 export default {
     name: 'MenuItem',
     props: {
         menuname: String,
         price: String,
-    }
+    },
+    mixins: [
+        cartMixin
+    ],
+    methods: {
+        add_prod(e) { 
+            this.addProduct(e); 
+        }
+    },
 }
 </script>
 

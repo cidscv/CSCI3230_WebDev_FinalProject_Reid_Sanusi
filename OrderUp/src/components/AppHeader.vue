@@ -13,7 +13,7 @@
             <router-link to="#" >    
                 <img
                 src="../assets/shopping-cart.svg"
-                alt="shopping cart" @click="toggleCart" v-if="isLoggedIn" class="cartButton js-toggle-cart" width="20px"/>
+                alt="shopping cart" @click="toggle" v-if="isLoggedIn" class="cartButton js-toggle-cart" width="20px"/>
             </router-link>
         </div>
     </div>
@@ -21,7 +21,7 @@
             <div class="cart__header">
             <h1 class="cart__title">Shopping cart</h1>
             <p class="cart__text">
-                <a @click="toggleCart" class="button button--light js-toggle-cart" href="#" title="Close cart">
+                <a @click="toggle" class="button button--light js-toggle-cart" href="#" title="Close cart">
                 Close cart
                 </a>
             </p>
@@ -34,7 +34,7 @@
                 <article class="js-cart-product">
                 <h1>Product title</h1>
                 <p>
-                    <a @click="removeProduct" class="js-remove-product" href="#" title="Delete product">
+                    <a @click="remove" class="js-remove-product" href="#" title="Delete product">
                     Delete product
                     </a>
                 </p>
@@ -43,9 +43,9 @@
             </div>
             <div class="cart__footer">
             <p class="cart__text">
-                <a class="button" href="./order.html" title="Buy products">
+                <router-link @click="close" class="button" to="/order" title="Buy products">
                 Buy products
-                </a>
+                </router-link>
             </p>
             </div>
         </aside>
@@ -54,15 +54,14 @@
 
 <script>
 import auth from "../js/auth"
+import cartMixin from "../js/cartMixin"
 import $ from "JQuery"
 
 export default {
     name: 'AppHeader',
     data(){
         return{
-            isLoggedIn: auth.isLoggedIn(),
-            cartOpen:false,
-            numberOfProducts:0
+            isLoggedIn: auth.isLoggedIn()
         };
     },
     created(){
@@ -70,43 +69,25 @@ export default {
             this.isLoggedIn = isLoggedIn;
         }
     },
+    mixins:[
+        cartMixin
+    ],
     methods: {
         logout: function(){
-            auth.logout( (res) =>{
-                console.log(res)
-            });
+            this.logout();
         },
-        toggleCart: function(e) {
-            e.preventDefault();
-            if(this.cartOpen) {
-                this.closeCart();
-                return;
-            }
-            this.openCart();
+        toggle: function(e) {
+             this.toggleCart(e);
         },
-        addProduct: function(e) {
-            e.preventDefault();
-            this.openCart();
-            $('.js-cart-empty').addClass('hide');
-            var product = $('.js-cart-product-template').html();
-            $('.js-cart-products').prepend(product);
-            this.numberOfProducts++;
+        
+        open: function() {
+            this.toggleCart()
         },
-        removeProduct:function(e){
-            e.preventDefault();
-            this.numberOfProducts--;
-            $(this).closest('.js-cart-product').hide(250);
-            if(this.numberOfProducts == 0) {
-                $('.js-cart-empty').removeClass('hide');
-            }
+        close: function() {
+           this.closeCart()
         },
-        openCart: function() {
-            this.cartOpen = true;
-            $('body').addClass('open');
-        },
-        closeCart: function() {
-            this.cartOpen = false;
-            $('body').removeClass('open');
+        remove: function() {
+           this.removeProduct()
         },
     }
 }
