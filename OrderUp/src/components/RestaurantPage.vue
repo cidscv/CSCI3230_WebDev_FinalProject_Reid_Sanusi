@@ -110,6 +110,6 @@ export default{
     color: #0F4900;
 }
 .restaurantPage .restNameInfo {
-    padding: 20 40px;
+    padding: 20px 40px;
 }
 </style>
