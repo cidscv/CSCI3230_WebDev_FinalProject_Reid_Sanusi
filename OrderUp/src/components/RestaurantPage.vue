@@ -2,10 +2,14 @@
     <div class="restaurantPage">
         <div class="filter">
             <h1>Filter</h1>
-            <a href="#">Burger</a>
-            <a href="#">Burger</a>
-            <a href="#">Burger</a>
-            <a href="#">Burger</a>
+            <a v-on:click="noFilter" href="#">All</a>
+            <div class="cat"
+                    :class="{ active: index == currentIndex }"
+                    v-for="(menuitem, index) in menu"
+                    :key="index"
+                >
+                    <a v-on:click="filterByCat(menuitem.cat)" href="#">{{menuitem.cat}}</a>
+            </div>
         </div>
         <div class="resthead">
             <div class="restNameInfo">
@@ -38,9 +42,11 @@ export default{
     data() {
         return {
             menu: [],
+            allmenu: [],
             currentRestaurant: "",
             currentMenuItem: "",
             currentIndex: -1,
+            route: this.$route,
             message: ''
         };
   },
@@ -50,6 +56,7 @@ export default{
         .then(response => {
           this.currentRestaurant = response.data;
           this.menu = response.data.menu;
+          this.allmenu = response.data.menu;
           console.log(response.data);
         })
         .catch(e => {
@@ -60,10 +67,23 @@ export default{
       this.currentMenuItem = menuitem;
       this.currentIndex = index;
       console.log(this.currentMenuItem);
+    },
+    filterByCat(cat) {
+        for (var i = 0; i <= this.allmenu.length; i++) {
+            console.log(this.allmenu[i].cat);
+            console.log(cat);
+            if (this.allmenu[i].cat != cat) {
+                this.menu.splice(i);
+            }
+        }
+    },
+    noFilter() {
+        this.getRestaurant(this.$route.params.id);
     }
   },
   mounted() {
     this.message = '';
+    console.log("working")
     this.getRestaurant(this.$route.params.id);
   }
 }; 
