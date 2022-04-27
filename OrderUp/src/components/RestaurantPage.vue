@@ -23,7 +23,7 @@
                     v-for="(menuitem, index) in menu"
                     :key="index"
                 >
-                    <MenuItem :menuname="menuitem.item" :price="menuitem.price" />
+                    <MenuItem :menuname="menuitem.item" :price="menuitem.price" :title="menuitem.item" :cartPrice="menuitem.price"/>
                 </div>
             </div>
         </div>
