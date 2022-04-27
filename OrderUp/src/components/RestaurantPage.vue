@@ -10,8 +10,8 @@
         <div class="resthead">
             <div class="restNameInfo">
                 <h1>{{currentRestaurant.restName}}</h1>
-                <p>101 John St, On </p>
-                <p>603-020-3023</p>
+                <p>{{currentRestaurant.address}}</p>
+                <p>{{currentRestaurant.number}}</p>
             </div>
             <div class="restaurants">
                 <div class="menuitem"
