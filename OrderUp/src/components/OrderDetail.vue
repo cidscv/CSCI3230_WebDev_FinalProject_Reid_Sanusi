@@ -6,7 +6,7 @@
                 <p>Thank you for ordering, we're on our way!</p>
             </div>
             <div style="text-align: center;">
-                <div class="info">
+                <div class="orderInfo">
                     <div class="foodPic">
                     </div>
                     <div class="infoRight">
@@ -47,7 +47,7 @@ export default{
     background-repeat: no-repeat;
     background-position: center;
 }
-.info {
+.orderInfo {
     display: inline-grid;
     grid-template-columns: 2fr 1fr;
     height: 200px;
@@ -55,7 +55,7 @@ export default{
     margin: 20px 40px;
     border-radius: 20px;
 }
-.info .foodPic{
+.orderInfo .foodPic{
     background-image: url("../assets/pexels-lisa-fotios-8385550.jpg");
     width: 100%;
     height: 100%;
@@ -66,7 +66,7 @@ export default{
     background-repeat: no-repeat;
     background-position: center;
 }
-.info .infoRight{
+.orderInfo .infoRight{
     padding: 20px;
     text-align: left;
 }

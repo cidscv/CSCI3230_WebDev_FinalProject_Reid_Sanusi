@@ -3,7 +3,7 @@
         <div class="homeHeadImg"></div>
         <div class="cta">
             <h1>Fresh Food.<br>Fast Food.<br>Real Food.</h1>
-            <p>Lorem ipsum dolor sit amet, cillum velit laboris veniam excepteur id ullamco id. Officia officia dolore eu officia amet nostrud ea veniam fugiat eiusmod fugiat. Id do ullamco quis laboris occaecat nisi exercitation aliqua laboris adipisicing elit id magna nulla eiusmod eu cupidatat nulla labore. <br><br>Eu occaecat duis aliquip ex proident nisi magna velit Lorem laboris magna adipisicing. Ex labore veniam do eiusmod labore in Lorem tempor aute duis eiusmod laboris in sunt adipisicing. Ea voluptate in non elit qui Lorem occaecat aute ad voluptate ipsum. Elit cupidatat excepteur anim esse in sunt. Cillum veniam mollit laborum ex non ipsum deserunt ad id.<br><br> Do sint elit dolor quis ad deserunt reprehenderit. Lorem occaecat consequat ullamco eu ipsum occaecat sunt commodo Lorem sit culpa.</p> 
+            <p>We welcome you to sit back, unwind and appreciate the lovely sights and hints of  life while our best gourmet restuarants set you up a scrumptious dinner utilizing the best and freshest ingredients. Our legacy comes from our relentless energy to cook and serve solid, amazing gourmet food.</p> 
             <router-link to="/restaurants">View all Restaurants</router-link>
         </div>
     </section>
