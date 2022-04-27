@@ -1,31 +1,29 @@
 <template>
-<div class="restaurant">
-    <div id="header">
-        <div id="restinfo">
-            <img alt="Mcphoto" src="../assets/mcphoto.png" class="mcphoto"/>
-            <p id="restname">
-                {{currentRestaurant.restName}}
-            </p>
+    <div class="restaurantPage">
+        <div class="filter">
+            <h1>Filter</h1>
+            <a href="#">Burger</a>
+            <a href="#">Burger</a>
+            <a href="#">Burger</a>
+            <a href="#">Burger</a>
         </div>
-        <div id="nav">
-            <p id="cat">Burgers</p>
-            <p id="cat">Drinks</p>
-            <p id="cat">Chicken</p>
-            <p id="cat">Snacks</p>
+        <div class="resthead">
+            <div class="restNameInfo">
+                <h1>{{currentRestaurant.restName}}</h1>
+                <p>101 John St, On </p>
+                <p>603-020-3023</p>
+            </div>
+            <div class="restaurants">
+                <div class="menuitem"
+                    :class="{ active: index == currentIndex }"
+                    v-for="(menuitem, index) in menu"
+                    :key="index"
+                >
+                    <MenuItem :menuname="menuitem.item" :price="menuitem.price" />
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="menu">
-        <div class="menuitem"
-            :class="{ active: index == currentIndex }"
-            v-for="(menuitem, index) in menu"
-            :key="index"
-            @click="setActiveMenuItem(menuitem, index)"
-        >
-            <MenuItem :menuname="menuitem.item" :price="menuitem.price" />
-        </div>
-    </div>
-</div>
 </template>
 
 <script>
@@ -74,55 +72,47 @@ export default{
 
 <style lang="scss">
 
-#header {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-#restinfo {
-    display: flex;
-    flex-direction: row;
-}
-
-#restname {
-    font-size: 20px;
-    color: white;
-    padding: 20px;
-}
-
-.mcphoto {
-    width: 100px;
-    height: 100px;
-}
-
-#nav {
-    padding-bottom: 20px;
-    font-weight: bold;
-    font-size: 25px;
-    display: flex;
-    flex-direction: row;
-    p{
-        text-decoration: none;
-        color: white;
-    }
-    p:hover{
-        cursor: pointer;
-    }
-}
-
-#cat {
-    padding-left: 20px;
-}
-
-#menu {
+.restaurants{
+    padding: 40px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     justify-content: space-evenly;
-    align-items: baseline;
-    margin: 0 auto;
+}
+
+.restaurantCard .content{
+    padding: 20px 40px ;
+}
+
+
+.restaurantPage{
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+}
+.restaurantPage .filter{
+    display: flex;
+    background-color: #f7f7f7;
+    padding: 10px 30px;
+    flex-direction: column;
+}
+.restaurantPage .filter h1{
+    font-variant: small-caps;
+    font-size: 1.5em;
+    color: #59da38;
+}
+.restaurantPage .filter a{
+    margin-top: 15px;
+    color: #296b47;
+    text-decoration: none;
+    
+}
+.restaurantPage .filter a:hover{
+    color: #0F4900;
+}
+.restaurantPage .filter a:active{
+    color: #0F4900;
+}
+.restaurantPage .restNameInfo {
+    padding: 20px 40px;
 }
 </style>
