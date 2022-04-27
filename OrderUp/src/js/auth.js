@@ -47,15 +47,19 @@ export default {
 
 function authRequest(username, password, callback) {
   axios
-    .get(
-      `http://localhost:8080/api/users?username=${username}&password=${password}`
-    )
+    .get(`http://localhost:8080/api/users?username=${username}`)
     .then((result) => {
       if (result.data.length > 0) {
-        callback({
-          auth: true,
-          token: Math.random().toString(36).substring(7),
-        });
+        if (result.data[0].password == password) {
+          callback({
+            auth: true,
+            token: Math.random().toString(36).substring(7),
+          });
+        } else {
+          callback({
+            auth: false,
+          });
+        }
       } else {
         callback({
           auth: false,

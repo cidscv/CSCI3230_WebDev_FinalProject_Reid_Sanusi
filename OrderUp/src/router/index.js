@@ -4,7 +4,6 @@ import AccountView from "../views/AccountView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import ContactUsView from "../views/ContactUsView.vue";
-import RestaurantView from "../views/RestaurantView.vue";
 import RestaurantsView from "../views/RestaurantsView.vue";
 
 const router = createRouter({
@@ -20,12 +19,6 @@ const router = createRouter({
       path: "/restaurants",
       name: "restaurants",
       component: RestaurantsView,
-      meta: { header: true },
-    },
-    {
-      path: "/restaurant",
-      name: "restaurant",
-      component: RestaurantView,
       meta: { header: true },
     },
     {
@@ -53,9 +46,9 @@ const router = createRouter({
       meta: { header: true },
     },
     {
-      path: "/mcdonalds",
-      name: "mcdonalds",
-      component: RestaurantView,
+      path: "/restaurant/:id",
+      name: "restaurant-details",
+      component: () => import("../components/RestaurantPage.vue"),
       meta: { header: false },
     },
   ],
