@@ -21,12 +21,12 @@ export default {
     background-color: #c0ffc9;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height:  calc(100vh - 10px)
+    height:  100vh;
 }
 .homeHead .homeHeadImg{
     background-image: url("../assets/pexels-lisa-fotios-8385550.jpg") ;
     width: 100%;
-    height: auto;
+    height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
