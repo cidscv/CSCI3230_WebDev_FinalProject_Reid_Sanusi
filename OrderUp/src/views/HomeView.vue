@@ -10,6 +10,4 @@ export default {
   components: {
     HomeView
   },
-}
 </script>
-
