@@ -53,7 +53,6 @@
 
 <script>
 import auth from "../js/auth"
-import $ from "JQuery"
 
 export default {
     name: 'AppHeader',
