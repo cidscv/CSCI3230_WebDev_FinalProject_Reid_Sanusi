@@ -6,7 +6,7 @@
                     {{menuname}}
                 </p>
                 <p class="metaText"> ${{price}}</p>
-                <button class="addToCart"> Add to Cart</button>
+                <button class="addToCart js-add-product"> Add to Cart</button>
             </div>
         </div>
 </template>

@@ -5,6 +5,7 @@ import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import ContactUsView from "../views/ContactUsView.vue";
 import RestaurantsView from "../views/RestaurantsView.vue";
+import OrderDetailView from "../views/OrderDetailView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,6 +44,12 @@ const router = createRouter({
       path: "/account",
       name: "account",
       component: AccountView,
+      meta: { header: true },
+    },
+    {
+      path: "/order",
+      name: "order",
+      component: OrderDetailView,
       meta: { header: true },
     },
     {
