@@ -1,4 +1,5 @@
 <template>
+<div class="restaurant">
     <div id="header">
         <div id="restinfo">
             <img alt="Mcphoto" src="../assets/mcphoto.png" class="mcphoto"/>
@@ -15,15 +16,16 @@
     </div>
 
     <div class="menu">
-            <div class="menuitem"
-                :class="{ active: index == currentIndex }"
-                v-for="(menuitem, index) in menu"
-                :key="index"
-            >
-                <MenuItem :menuname="menuitem.item" :price="menuitem.price" />
-            </div>
+        <div class="menuitem"
+            :class="{ active: index == currentIndex }"
+            v-for="(menuitem, index) in menu"
+            :key="index"
+            @click="setActiveMenuItem(menuitem, index)"
+        >
+            <MenuItem :menuname="menuitem.item" :price="menuitem.price" />
         </div>
-
+    </div>
+</div>
 </template>
 
 <script>
@@ -39,6 +41,7 @@ export default{
         return {
             menu: [],
             currentRestaurant: "",
+            currentMenuItem: "",
             currentIndex: -1,
             message: ''
         };
@@ -55,6 +58,11 @@ export default{
           console.log(e);
         });
     },
+    setActiveMenuItem(menuitem, index) {
+      this.currentMenuItem = menuitem;
+      this.currentIndex = index;
+      console.log(this.currentMenuItem);
+    }
   },
   mounted() {
     this.message = '';

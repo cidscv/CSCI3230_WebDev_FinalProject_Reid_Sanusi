@@ -16,7 +16,7 @@ exports.create = (req, res) => {
     city: "",
     postalcode: "",
     lastname: "",
-    email: "",
+    email: req.body.email,
     state: "",
     country: "",
     active: req.body.active ? req.body.active : false,
