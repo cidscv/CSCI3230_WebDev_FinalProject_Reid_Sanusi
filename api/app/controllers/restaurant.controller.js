@@ -11,6 +11,7 @@ exports.create = (req, res) => {
   const rest = new Rest({
     restName: req.body.restName,
     price: req.body.price,
+    menu: req.body.menu,
   });
   // Save user in the database
   rest
