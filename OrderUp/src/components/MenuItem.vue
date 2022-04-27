@@ -23,8 +23,10 @@ export default {
         cartMixin
     ],
     methods: {
-        add_prod(e) { 
-            this.addProduct(e); 
+        add_prod(e) {
+            var cartItem = {menuname: this.menuname, price: this.price}
+            console.log(cartItem);
+            this.addProduct(e);
         }
     },
 }

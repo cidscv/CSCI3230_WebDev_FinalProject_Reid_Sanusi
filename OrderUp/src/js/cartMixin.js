@@ -8,11 +8,6 @@ export default {
         }
     },
     methods: {
-        logout: function(){
-            auth.logout((res) =>{
-                console.log(res)
-            });
-        },
         toggleCart: function(e) {
             e.preventDefault();
             if(this.cartOpen) {

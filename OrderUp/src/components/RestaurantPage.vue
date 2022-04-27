@@ -78,13 +78,14 @@ export default{
       console.log(this.currentMenuItem);
     },
     filterByCat(cat) {
-        for (var i = 0; i <= this.menu.length; i++) {
-            console.log(this.menu[i].cat);
-            console.log(cat);
-            if (this.menu[i].cat != cat) {
-                this.menu.splice(i);
+        console.log(cat);
+        this.menu.forEach(menuitem => {
+            console.log(menuitem);
+            if (menuitem.cat != cat) {
+                this.menu.splice(this.menu.indexOf(cat));
+                console.log(this.menu);
             }
-        }
+        })
     },
     noFilter() {
         this.cats = [];

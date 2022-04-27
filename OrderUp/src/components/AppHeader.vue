@@ -32,7 +32,7 @@
             </p>
             <div class="cart__product js-cart-product-template">
                 <article class="js-cart-product">
-                <h1>Product title</h1>
+                <h1>{{title}} | ${{price}}</h1>
                 <p>
                     <a @click="remove" class="js-remove-product" href="#" title="Delete product">
                     Delete product
@@ -55,13 +55,16 @@
 <script>
 import auth from "../js/auth"
 import cartMixin from "../js/cartMixin"
+import MenuItem from "./MenuItem.vue"
 import $ from "JQuery"
 
 export default {
     name: 'AppHeader',
     data(){
         return{
-            isLoggedIn: auth.isLoggedIn()
+            isLoggedIn: auth.isLoggedIn(),
+            title: MenuItem.props.menuname,
+            price: MenuItem.props.price,
         };
     },
     created(){
