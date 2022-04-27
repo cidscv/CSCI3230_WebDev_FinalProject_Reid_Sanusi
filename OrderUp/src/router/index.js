@@ -46,7 +46,7 @@ const router = createRouter({
       meta: { header: true },
     },
     {
-      path: "/restaurants/:id",
+      path: "/restaurant/:id",
       name: "restaurant-details",
       component: () => import("../components/RestaurantPage.vue"),
       meta: { header: false },

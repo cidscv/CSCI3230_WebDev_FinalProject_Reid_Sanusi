@@ -14,12 +14,15 @@
         </div>
     </div>
 
-    <div id="menu">
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
-    </div>
+    <div class="menu">
+            <div class="menuitem"
+                :class="{ active: index == currentIndex }"
+                v-for="(menuitem, index) in menu"
+                :key="index"
+            >
+                <MenuItem :menuname="menuitem.item" :price="menuitem.price" />
+            </div>
+        </div>
 
 </template>
 
@@ -34,7 +37,9 @@ export default{
     },
     data() {
         return {
+            menu: [],
             currentRestaurant: "",
+            currentIndex: -1,
             message: ''
         };
   },
@@ -43,12 +48,13 @@ export default{
       RestaurantDataService.get(id)
         .then(response => {
           this.currentRestaurant = response.data;
+          this.menu = response.data.menu;
           console.log(response.data);
         })
         .catch(e => {
           console.log(e);
         });
-    }
+    },
   },
   mounted() {
     this.message = '';
@@ -89,11 +95,11 @@ export default{
     font-size: 25px;
     display: flex;
     flex-direction: row;
-    a{
+    p{
         text-decoration: none;
         color: white;
     }
-    a:hover{
+    p:hover{
         cursor: pointer;
     }
 }
@@ -104,8 +110,11 @@ export default{
 
 #menu {
     display: flex;
-    padding: 20px;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin: 0 auto;
 }
 </style>

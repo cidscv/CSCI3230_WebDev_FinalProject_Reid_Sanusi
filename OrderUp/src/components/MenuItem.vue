@@ -2,10 +2,10 @@
     <div id="item">
         <img src="../assets/burger.jpg" alt="menu-pic" class="burger">
         <div id="itemname">
-            Big Mac Extra Value Meal [710-1140 Cals]
+            {{menuname}}
         </div>
         <div id="price">
-            $11.49
+            Price: ${{price}}
         </div>
     </div>
 </template>
@@ -13,6 +13,10 @@
 <script>
 export default {
     name: 'MenuItem',
+    props: {
+        menuname: String,
+        price: String,
+    }
 }
 </script>
 

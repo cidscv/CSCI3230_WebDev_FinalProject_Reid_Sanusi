@@ -1,111 +1,90 @@
 <template>
     <div class="restaurants">
-        <router-link to="/restaurant">
-            <div class="restaurantCard">
-                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
-                <div class="content">
-                    <p class="mainText">
-                        Restaurant name
-                    </p>
-                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
-                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
-                </div>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button"
+            @click="searchTitle"
+          >
+            Search
+          </button>
+        </div>
+        <div class="rests">
+            <div class="rest"
+                :class="{ active: index == currentIndex }"
+                v-for="(restaurant, index) in restaurants"
+                :key="index"
+                @click="setActiveRestaurant(restaurant, index)"
+            >
+                <RestaurantInfo :restName="restaurant.restName" :price="restaurant.price" :id="restaurant.id" />
             </div>
-        </router-link>
-        <router-link to="/restaurant">
-            <div class="restaurantCard">
-                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
-                <div class="content">
-                    <p class="mainText">
-                        Restaurant name
-                    </p>
-                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
-                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
-                </div>
-            </div>
-        </router-link>
-        <router-link to="/restaurant">
-            <div class="restaurantCard">
-                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
-                <div class="content">
-                    <p class="mainText">
-                        Restaurant name
-                    </p>
-                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
-                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
-                </div>
-            </div>
-        </router-link>
-        <router-link to="/restaurant">
-            <div class="restaurantCard">
-                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
-                <div class="content">
-                    <p class="mainText">
-                        Restaurant name
-                    </p>
-                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
-                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
-                </div>
-            </div>
-        </router-link>
-        <router-link to="/restaurant">
-            <div class="restaurantCard">
-                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
-                <div class="content">
-                    <p class="mainText">
-                        Restaurant name
-                    </p>
-                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
-                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
-                </div>
-            </div>
-        </router-link>
-        <router-link to="/restaurant">
-            <div class="restaurantCard">
-                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
-                <div class="content">
-                    <p class="mainText">
-                        Restaurant name
-                    </p>
-                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
-                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
-                </div>
-            </div>
-        </router-link>
-        <router-link to="/restaurant">
-            <div class="restaurantCard">
-                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
-                <div class="content">
-                    <p class="mainText">
-                        Restaurant name
-                    </p>
-                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
-                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
-                </div>
-            </div>
-        </router-link>
-        <router-link to="/restaurant">
-            <div class="restaurantCard">
-                <img src="../assets/pexels-lisa-fotios-8385550.jpg" alt="">
-                <div class="content">
-                    <p class="mainText">
-                        Restaurant name
-                    </p>
-                    <p class="metaText"> 120 John Dr, Oshawa ON</p>
-                    <p class="descText"> Lorem ipsum dolor sit amet, officia fugiat laborum commodo nulla et veniam ullamco cupidatat nisi</p>
-                </div>
-            </div>
-        </router-link>
+        </div>
+
     </div>
 
 </template>
 
 <script>
+import RestaurantDataService from "../services/RestaurantDataService"
+import RestaurantInfo from "../components/RestaurantInfo.vue";
 
-export default{
-    name: 'RestaurantPage'
-  
-}
+export default {
+  name: 'HomeView',
+  components: {
+    RestaurantInfo
+  },
+  data() {
+    return {
+      restaurants: [],
+      currentRestaurant: null,
+      currentIndex: -1,
+      restName: ""
+    };
+  },
+  methods: {
+    retrieveRestaurants() {
+      RestaurantDataService.getAll()
+        .then(response => {
+          this.restaurants = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    refreshList() {
+      this.retrieveRestaurants();
+      this.currentRestaurant = null;
+      this.currentIndex = -1;
+    },
+    setActiveRestaurant(restaurant, index) {
+      this.currentRestaurant = restaurant;
+      this.currentIndex = index;
+    },
+    removeAllRestaurants() {
+      RestaurantDataService.deleteAll()
+        .then(response => {
+          console.log(response.data);
+          this.refreshList();
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    
+    searchTitle() {
+      RestaurantDataService.findByRestName(this.restName)
+        .then(response => {
+          this.restaurants = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  },
+  mounted() {
+    this.retrieveRestaurants();
+  }
+};
 </script>
 
 <style lang="scss">
@@ -117,34 +96,22 @@ export default{
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.restaurantCard{
-    border: 1px solid rgb(238, 238, 238);
-    border-radius: 20px;
-    margin-bottom: 20px;
-    width: 100px;
-    width: 400px;
-}
-.restaurantCard img{
-    width: 100%;
-    border-radius: 20px;
-}
-.restaurantCard .content{
-    padding: 20px 40px ;
-}
-.restaurants a{
-    text-decoration: none;
+
+.rests{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin: 0 auto;
 }
 
-.restaurantCard .content .mainText{
-    font-weight: 600;
-    color:#9f0000;;
-    font-size: 1.5em;
+.rest {
+    padding: 10px;
 }
-.restaurantCard .content .metaText{
-    font-size: 10pt;
-    color:rgb(41, 107, 71)
-}
-.restaurantCard .content .descText{
-    color:rgb(41, 107, 71)
+
+.restaurants a{
+    text-decoration: none;
 }
 </style>
