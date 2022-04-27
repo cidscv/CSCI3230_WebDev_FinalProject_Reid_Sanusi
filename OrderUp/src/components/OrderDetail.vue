@@ -10,7 +10,7 @@
                     <div class="foodPic">
                     </div>
                     <div class="infoRight">
-                        <p>Name: Food Name</p>
+                        <p>Name: Burger</p>
                         <p>Order Id: 1</p>
                         <p>Quantity: 1</p>
                         <p>Total: <strong>$44.94</strong></p>
@@ -27,6 +27,11 @@
 <script>
 export default{
     name: 'OrderDetail',
+    props: {cart: ['cart']},
+    mounted() {
+        console.log("working");
+        console.log(this.cart);
+    }
 }
 </script>
 

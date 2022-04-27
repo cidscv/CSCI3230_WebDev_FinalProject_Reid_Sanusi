@@ -50,6 +50,7 @@ const router = createRouter({
       path: "/order",
       name: "order",
       component: OrderDetailView,
+      props: true,
       meta: { header: true },
     },
     {
