@@ -1,7 +1,7 @@
 <template>
             <div class="cart__product js-cart-product-template">
                 <article class="js-cart-product">
-                <h1>{{title}} | ${{price}}</h1>
+                <h1>{{cart[0].item}} | ${{price}}</h1>
                 <p>
                     <a @click="remove" class="js-remove-product" href="#" title="Delete product">
                     Delete product
@@ -14,11 +14,13 @@
 <script>
 
 import cartMixin from "../js/cartMixin";
+import RestaurantPage from "./RestaurantPage.vue";
 export default {
     name: "Cart",
-    props: {
-        title: String,
-        price: String,
+    data() {
+        return {
+            cart: RestaurantPage.methods.getCart(),
+        }
     },
     mixins:[
         cartMixin

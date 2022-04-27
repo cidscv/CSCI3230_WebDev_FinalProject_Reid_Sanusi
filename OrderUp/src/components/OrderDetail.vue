@@ -25,13 +25,9 @@
 </template>
 
 <script>
+
 export default{
     name: 'OrderDetail',
-    props: {cart: ['cart']},
-    mounted() {
-        console.log("working");
-        console.log(this.cart);
-    }
 }
 </script>
 

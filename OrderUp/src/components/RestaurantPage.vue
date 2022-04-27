@@ -54,9 +54,9 @@
             </div>
             <div class="cart__footer">
             <p class="cart__text">
-                <a @click="close" class="button" title="Buy products">
+                <router-link @click="close" class="button" title="Buy products" to="/order">
                 Buy products
-                </a>
+                </router-link>
             </p>
             </div>
         </aside>
@@ -67,7 +67,9 @@
 import MenuItem from "./MenuItem.vue"
 import RestaurantDataService from "../services/RestaurantDataService";
 import cartMixin from "../js/cartMixin"
-import router from "../router";
+import Login from "./Login.vue";
+import axios from 'axios'
+import UserDataService from "../services/UserDataService";
 
 export default{
     name: 'RestaurantPage',
@@ -78,13 +80,18 @@ export default{
         return {
             menu: [],
             cats: [],
-            cart: [],
+            cart: ["hi"],
+            user: Function,
+            username: Login.methods.getUsername(),
             currentRestaurant: "",
             currentMenuItem: "",
             currentIndex: -1,
             route: this.$route,
             message: ''
         };
+  },
+  created:function(){
+    axios.get(`http://localhost:8080/api/users?username=${this.username}`).then(response => {this.user = response.data;}).catch(error => console.log(error))
   },
   mixins: [
         cartMixin
@@ -114,7 +121,7 @@ export default{
     setActiveMenuItem(menuitem, index) {
       this.currentMenuItem = menuitem;
       this.currentIndex = index;
-      this.cart.push(this.currentMenuItem);
+      //this.cart.push(this.currentMenuItem);
       console.log(this.currentMenuItem);
     },
     filterByCat(cat) {
@@ -143,8 +150,10 @@ export default{
         },
         close: function() {
             console.log(this.cart);
-           this.closeCart()
-           this.$router.push({name: "order", params: {cart: "Hi"}})
+            this.user[0].cart = this.cart;
+            console.log(this.user[0]);
+            UserDataService.update(this.user[0].id, this.user[0]);
+            this.closeCart()
         },
         remove: function() {
            this.removeProduct()
@@ -218,6 +227,10 @@ body.open {
     font-size: 14px;
     text-decoration: none;
     color: #fff;
+
+    :hover {
+        cursor: pointer;
+    }
 }
 .button--light {
     background: #fff;

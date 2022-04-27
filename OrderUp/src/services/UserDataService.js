@@ -11,6 +11,8 @@ class UserDataService {
     return http.post("/users", data);
   }
   update(id, data) {
+    console.log(data);
+    console.log(id);
     return http.put(`/users/${id}`, data);
   }
   delete(id) {

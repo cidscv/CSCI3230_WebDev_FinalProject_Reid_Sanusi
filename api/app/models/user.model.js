@@ -12,6 +12,7 @@ module.exports = (mongoose) => {
       state: String,
       country: String,
       active: Boolean,
+      cart: Array,
     },
     { timestamps: true }
   );

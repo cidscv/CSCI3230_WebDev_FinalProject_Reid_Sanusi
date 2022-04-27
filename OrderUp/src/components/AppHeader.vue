@@ -24,8 +24,6 @@
 <script>
 import auth from "../js/auth"
 import cartMixin from "../js/cartMixin"
-import MenuItem from "./MenuItem.vue"
-import $ from "JQuery"
 
 export default {
     name: 'AppHeader',

@@ -19,6 +19,7 @@ exports.create = (req, res) => {
     email: req.body.email,
     state: "",
     country: "",
+    cart: req.body.email,
     active: req.body.active ? req.body.active : false,
   });
   // Save user in the database
