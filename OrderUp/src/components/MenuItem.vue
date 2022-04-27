@@ -24,8 +24,6 @@ export default {
     ],
     methods: {
         add_prod(e) {
-            var cartItem = {menuname: this.menuname, price: this.price}
-            console.log(cartItem);
             this.addProduct(e);
         }
     },

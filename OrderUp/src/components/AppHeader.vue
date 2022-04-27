@@ -63,7 +63,7 @@ export default {
     data(){
         return{
             isLoggedIn: auth.isLoggedIn(),
-            title: MenuItem.props.menuname,
+            title: "blah",
             price: MenuItem.props.price,
         };
     },
@@ -71,6 +71,7 @@ export default {
         auth.onLoginStatus = isLoggedIn => {
             this.isLoggedIn = isLoggedIn;
         }
+        
     },
     mixins:[
         cartMixin
@@ -92,7 +93,7 @@ export default {
         remove: function() {
            this.removeProduct()
         },
-    }
+    },
 }
 </script>
 
