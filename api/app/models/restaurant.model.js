@@ -2,6 +2,8 @@ module.exports = (mongoose) => {
   var schema = mongoose.Schema({
     restName: String,
     price: String,
+    cat: String,
+    number: String,
     menu: Array,
   });
   schema.method("toJSON", function () {

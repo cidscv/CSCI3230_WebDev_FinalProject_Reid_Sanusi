@@ -9,7 +9,6 @@
         </div>
         <div class="resthead">
             <div class="restNameInfo">
-
                 <h1>{{currentRestaurant.restName}}</h1>
                 <p>101 John St, On </p>
                 <p>603-020-3023</p>
@@ -25,8 +24,6 @@
             </div>
         </div>
     </div>
-
-
 </template>
 
 <script>
@@ -42,6 +39,7 @@ export default{
         return {
             menu: [],
             currentRestaurant: "",
+            currentMenuItem: "",
             currentIndex: -1,
             message: ''
         };
@@ -58,6 +56,11 @@ export default{
           console.log(e);
         });
     },
+    setActiveMenuItem(menuitem, index) {
+      this.currentMenuItem = menuitem;
+      this.currentIndex = index;
+      console.log(this.currentMenuItem);
+    }
   },
   mounted() {
     this.message = '';

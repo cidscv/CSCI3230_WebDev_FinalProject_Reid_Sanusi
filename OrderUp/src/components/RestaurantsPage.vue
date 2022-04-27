@@ -1,6 +1,7 @@
 <template>
     <div class="restaurants">
         <div class="input-group-append">
+          <input v-model="restName" type="text">
           <button class="btn btn-outline-secondary" type="button"
             @click="searchTitle"
           >

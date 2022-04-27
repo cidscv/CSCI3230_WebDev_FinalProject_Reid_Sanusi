@@ -1,98 +1,100 @@
 <template>
-    <div class="detail">
-        <h1>My Account</h1>
-        <p>Hello</p>
-        <p>You can manage your orders and information here.<br>Please click on one of the buttons below.</p>
+    <div class="account">
+        <div class="detail">
+            <h1>My Account</h1>
+            <p>Hello</p>
+            <p>You can manage your orders and information here.<br>Please click on one of the buttons below.</p>
 
-        <div class="navigations">
-            <button @click="visDivs('orders')" class="orders">Orders</button>
-            <button @click="visDivs('info')" class="info">Personal information</button>
-            <button @click="visDivs('payments');" class="payments">Payment Details</button>
+            <div class="navigations">
+                <button @click="visDivs('orders')" class="orders">Orders</button>
+                <button @click="visDivs('info')" class="info">Personal information</button>
+                <button @click="visDivs('payments');" class="payments">Payment Details</button>
 
+            </div>
         </div>
-    </div>
-    <div class="settings">
-        <div v-if="orderVisible" class="orders">
-            <table>
-                <thead>
-                    <tr class="head">
-                        <th>Order ID</th>
-                        <th>Date</th>
-                        <th>Total</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>May 3rd, 2022</td>
-                        <td>$32.68</td>
-                        <td><button>View</button></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>May 3rd, 2022</td>
-                        <td>$32.68</td>
-                        <td><button>View</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div v-if="infoVisible" class="personalInfo">
-            <form>
-                <div class="split left">
-                    <p>First Name: {{user[0].firstname}}</p>
-                    <input type="text"  v-model="firstName" placeholder="First Name" required/>
-                    <br>
-                    <p>Phone Number: {{user[0].phonenumber}}</p>
-                    <input type="text"  v-model="number" placeholder="Number" required/>
-                    <br>
-                    <p>City: {{user[0].city}}</p>
-                    <input type="text"  v-model="city" placeholder="City" required/>
-                    <br>
-                    <p>Postal Code: {{user[0].postalcode}}</p>
-                    <input type="text"  v-model="postalCode" placeholder="Postal Code" required/>
-                    <br>
-                </div>
-                <div class="split left">
-                    <p>Last Name: {{user[0].lastname}}</p>
-                    <input type="text"  v-model="lastName" placeholder="Last Name" required/>
-                    <br>
+        <div class="settings">
+            <div v-if="orderVisible" class="orders">
+                <table>
+                    <thead>
+                        <tr class="head">
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>May 3rd, 2022</td>
+                            <td>$32.68</td>
+                            <td><button>View</button></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>May 3rd, 2022</td>
+                            <td>$32.68</td>
+                            <td><button>View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div v-if="infoVisible" class="personalInfo">
+                <form @submit.prevent="formsubmit">
+                    <div class="split left">
+                        <p>First Name:</p>
+                        <input type="text"  v-model="firstName" required/>
+                        <br>
+                        <p>Phone Number:</p>
+                        <input type="text"  v-model="number" required/>
+                        <br>
+                        <p>City:</p>
+                        <input type="text"  v-model="city" required/>
+                        <br>
+                        <p>Postal Code:</p>
+                        <input type="text"  v-model="postalCode" required/>
+                        <br>
+                    </div>
+                    <div class="split left">
+                        <p>Last Name:</p>
+                        <input type="text"  v-model="lastName" required/>
+                        <br>
+                        
+                        <p>Email Address:</p>
+                        <input type="text"  v-model="email" required/>
+                        <br>
                     
-                    <p>Email Address: {{user[0].email}}</p>
-                    <input type="text"  v-model="email" placeholder="Email" required/>
-                    <br>
+                        <p>State:</p>
+                        <input type="text"  v-model="state" required/>
+                        <br>
+                    
+                        <p>Country:</p>
+                        <input type="text"  v-model="country" required/>
+                        <br>
+                    </div>
+                    
                 
-                    <p>State: {{user[0].state}}</p>
-                    <input type="text"  v-model="state" placeholder="State" required/>
-                    <br>
-                
-                    <p>Country: {{user[0].country}}</p>
-                    <input type="text"  v-model="country" placeholder="Country" required/>
-                    <br>
-                </div>
-                
-               
-                <button v-on:click="update" class="btn"> Update </button>
-            </form>
-        </div>
-        <div v-if="cardVisible" class="card">
-            <form>
-                 <div class="split left">
-                    <p>Card Number:</p>
-                    <input type="text"  name="cardNum" placeholder="374245455400126" required/>
-                    <br>
-                    <p>Exp Date:</p>
-                    <input type="text"  name="expDate" placeholder="10/26" required/>
-                    <br>
-                </div>
-                <div class="split left">  
-                    <p>Cvv:</p>
-                    <input type="text"  name="cvv" placeholder="321" required/>
-                    <br>
-                </div>      
-                <button class="btn"> Update </button>                         
-            </form>
+                    <button v-on:click="update" class="btn"> Update </button>
+                </form>
+            </div>
+            <div v-if="cardVisible" class="card">
+                <form>
+                    <div class="split left">
+                        <p>Card Number:</p>
+                        <input type="text"  name="cardNum" placeholder="374245455400126" required/>
+                        <br>
+                        <p>Exp Date:</p>
+                        <input type="text"  name="expDate" placeholder="10/26" required/>
+                        <br>
+                    </div>
+                    <div class="split left">  
+                        <p>Cvv:</p>
+                        <input type="text"  name="cvv" placeholder="321" required/>
+                        <br>
+                    </div>      
+                    <button class="btn"> Update </button>                         
+                </form>
+            </div>
         </div>
     </div>
     
@@ -109,14 +111,14 @@
         },
         data(){
             return{ 
-                firstName: "",
-                number: "",
-                city: "",
-                postalCode: "",
-                lastName: "",
-                email: "",
-                state: "",
-                country: "",
+                firstName: this.user[0].firstname,
+                number: this.user[0].phonenumber,
+                city: this.user[0].city,
+                postalCode: this.user[0].postalcode,
+                lastName: this.user[0].lastname,
+                email: this.user[0].email,
+                state: this.user[0].state,
+                country: this.user[0].country,
                 orderVisible: false,
                 infoVisible: false,
                 cardVisible: false,
@@ -135,6 +137,11 @@
                 this.user[0].country = this.country;
                 console.log(this.user[0]);
                 UserDataService.update(this.user[0]["id"], this.user[0]);
+                alert("User profile has been updated!");
+
+            },
+            formsubmit: function () {
+                this.$router.replace('/account');
             },
             visDivs: function(ev){
                 this.orderVisible = false
