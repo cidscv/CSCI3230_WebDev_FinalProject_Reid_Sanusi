@@ -37,7 +37,7 @@ const router = createRouter({
       path: "/contact",
       name: "contact",
       component: ContactUsView,
-      meta: { header: false },
+      meta: { header: true },
     },
     {
       path: "/account",
@@ -49,7 +49,7 @@ const router = createRouter({
       path: "/restaurant/:id",
       name: "restaurant-details",
       component: () => import("../components/RestaurantPage.vue"),
-      meta: { header: false },
+      meta: { header: true },
     },
   ],
 });
