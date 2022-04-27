@@ -4,17 +4,17 @@
             <h1>Filter</h1>
             <a v-on:click="noFilter" href="#">All</a>
             <div class="cat"
-                    :class="{ active: index == currentIndex }"
-                    v-for="(menuitem, index) in menu"
+                    :class="{ active: index == 0}"
+                    v-for="(cat, index) in cats"
                     :key="index"
                 >
-                    <a v-on:click="filterByCat(menuitem.cat)" href="#">{{menuitem.cat}}</a>
+                    <a v-on:click="filterByCat(cat)" href="#">{{cat}}</a>
             </div>
         </div>
         <div class="resthead">
             <div class="restNameInfo">
                 <h1>{{currentRestaurant.restName}}</h1>
-                <p>{{currentRestaurant.address}}</p>
+                <p>{{currentRestaurant.address}} </p>
                 <p>{{currentRestaurant.number}}</p>
             </div>
             <div class="restaurants">
@@ -42,7 +42,7 @@ export default{
     data() {
         return {
             menu: [],
-            allmenu: [],
+            cats: [],
             currentRestaurant: "",
             currentMenuItem: "",
             currentIndex: -1,
@@ -56,7 +56,16 @@ export default{
         .then(response => {
           this.currentRestaurant = response.data;
           this.menu = response.data.menu;
-          this.allmenu = response.data.menu;
+          
+          for (var i = 0; i < response.data.menu.length; i++) {
+              if (this.menu[i].cat in this.cats) {
+                console.log("already in category")
+              } else {
+                  this.cats.push(this.menu[i].cat);
+              }
+          }
+
+
           console.log(response.data);
         })
         .catch(e => {
@@ -69,15 +78,16 @@ export default{
       console.log(this.currentMenuItem);
     },
     filterByCat(cat) {
-        for (var i = 0; i <= this.allmenu.length; i++) {
-            console.log(this.allmenu[i].cat);
+        for (var i = 0; i <= this.menu.length; i++) {
+            console.log(this.menu[i].cat);
             console.log(cat);
-            if (this.allmenu[i].cat != cat) {
+            if (this.menu[i].cat != cat) {
                 this.menu.splice(i);
             }
         }
     },
     noFilter() {
+        this.cats = [];
         this.getRestaurant(this.$route.params.id);
     }
   },
