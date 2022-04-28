@@ -25,6 +25,7 @@
                     @click="setActiveMenuItem(menuitem, index)"
                 >
                     <MenuItem :menuname="menuitem.item" :price="menuitem.price"/>
+                    <a @click="add_prod" class="addToCart js-add-product"> Add to Cart</a>
                 </div>
             </div>
         </div>
@@ -54,9 +55,9 @@
             </div>
             <div class="cart__footer">
             <p class="cart__text">
-                <router-link @click="close" class="button" title="Buy products" to="/order">
+                <button @click="close" class="button" title="Buy products">
                 Buy products
-                </router-link>
+                </button>
             </p>
             </div>
         </aside>
@@ -83,8 +84,8 @@ export default{
             cart: [],
             user: Function,
             username: Login.methods.getUsername(),
-            currentRestaurant: {item: "Burger", price: "5.66", cat: "Burger"},
-            currentMenuItem: "",
+            currentRestaurant: "",
+            currentMenuItem: {item: "Burger", price: "5.66", cat: "Burger"},
             currentIndex: -1,
             route: this.$route,
             message: ''
@@ -152,7 +153,9 @@ export default{
             console.log(this.cart);
             this.user[0].cart = this.cart;
             console.log(this.user[0]);
-            UserDataService.update(this.user[0].id, this.user[0]);
+            UserDataService.update(this.user[0].id, this.user[0]).then(response => {
+                this.$router.replace('/order');
+            });
             this.closeCart()
         },
         remove: function() {
@@ -216,6 +219,19 @@ export default{
 
 body.open {
     overflow-y: hidden;
+}
+
+.restaurants .menuitem .addToCart{
+    color:white;
+    background-color: green;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.restaurants .menuitem .addToCart:hover{
+    background-color: rgb(17, 185, 17);
+    cursor: pointer;
 }
 
 .button {

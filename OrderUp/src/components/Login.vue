@@ -29,8 +29,8 @@
         name: "Login",
         data(){
             return{
-                username: "Bret",
-                password: "hildegard.org",
+                username: "",
+                password: "",
                 errorMessage: ""
             }
         },

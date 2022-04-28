@@ -1,7 +1,6 @@
 <template>
   <div>
     <OrderDetail :user="user" />
-    
   </div>
 </template>
 

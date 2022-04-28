@@ -3,17 +3,20 @@
         <div>
             <div class="congrats">
                 <h1>Order Details</h1>
+                <p>Total: ${{totalprice}}</p>
                 <p>Thank you for ordering, we're on our way!</p>
             </div>
             <div style="text-align: center;">
-                <div class="orderInfo">
+                <div class="orderInfo" :class="{active: index == 0 }" 
+                        v-for="(order, index) in cart"
+                        :key="index">
                     <div class="foodPic">
                     </div>
                     <div class="infoRight">
-                        <p>Name: {{itemname}}</p>
+                        <p>Name: {{order.item}}</p>
                         <p>Order Id: 1</p>
                         <p>Quantity: 1</p>
-                        <p>Total: <strong>$44.94</strong></p>
+                        <p>Total: <strong>${{order.price}}</strong></p>
                     </div>
                 </div>
             </div>
@@ -33,9 +36,15 @@ export default{
     },
     data() {
         return {
-            itemname: this.user[0].cart[1].title,
+            cart: this.user[0].cart,
+            totalprice: 0,
         };
     },
+    mounted() {
+        for (var i = 0; i < this.cart.length; i++) {
+            this.totalprice = this.totalprice + Number(this.cart[i].price);
+        }
+    }
 }
 </script>
 
