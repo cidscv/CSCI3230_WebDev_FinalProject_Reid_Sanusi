@@ -6,39 +6,12 @@
             <p>You can manage your orders and information here.<br>Please click on one of the buttons below.</p>
 
             <div class="navigations">
-                <button @click="visDivs('orders')" class="orders">Orders</button>
                 <button @click="visDivs('info')" class="info">Personal information</button>
                 <button @click="visDivs('payments');" class="payments">Payment Details</button>
 
             </div>
         </div>
         <div class="settings">
-            <div v-if="orderVisible" class="orders">
-                <table>
-                    <thead>
-                        <tr class="head">
-                            <th>Order ID</th>
-                            <th>Date</th>
-                            <th>Total</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>May 3rd, 2022</td>
-                            <td>$32.68</td>
-                            <td><button>View</button></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>May 3rd, 2022</td>
-                            <td>$32.68</td>
-                            <td><button>View</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
             <div v-if="infoVisible" class="personalInfo">
                 <form @submit.prevent="formsubmit">
                     <div class="split left">
@@ -78,7 +51,7 @@
                 </form>
             </div>
             <div v-if="cardVisible" class="card">
-                <form>
+                <form @submit.prevent="formsubmit">
                     <div class="split left">
                         <p>Card Number:</p>
                         <input type="text"  name="cardNum" placeholder="374245455400126" required/>
@@ -92,7 +65,7 @@
                         <input type="text"  name="cvv" placeholder="321" required/>
                         <br>
                     </div>      
-                    <button class="btn"> Update </button>                         
+                    <button v-on:click="update" class="btn"> Update </button>                         
                 </form>
             </div>
         </div>
@@ -119,7 +92,6 @@
                 email: this.user[0].email,
                 state: this.user[0].state,
                 country: this.user[0].country,
-                orderVisible: false,
                 infoVisible: false,
                 cardVisible: false,
             }
@@ -144,18 +116,11 @@
                 this.$router.replace('/account');
             },
             visDivs: function(ev){
-                this.orderVisible = false
                 this.infoVisible = false
                 this.cardVisible = false
-                $('.orders').removeClass('selected');
                 $('.info').removeClass('selected');
                 $('.payments').removeClass('selected');
 
-                 
-                if(ev == 'orders'){
-                    $('.orders').addClass('selected');
-                    this.orderVisible = true
-                }
                 if(ev == 'info'){
                     $('.info').addClass('selected');
                     this.infoVisible = true
