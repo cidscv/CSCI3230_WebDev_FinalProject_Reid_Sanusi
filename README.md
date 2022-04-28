@@ -10,3 +10,5 @@ to run the vite application run ```npm run dev``` in the OrderUp folder using po
 You can register your own user or use one of our test users, ```username: test password: testpass```
 
 The node.js server must be running in order for the vite application to access the mongoDB
+
+Here is a demo video for your viewing pleasure: https://www.youtube.com/watch?v=DQ2WEqmbCx0
