@@ -7,7 +7,7 @@ to run the node.js server run ```node server.js``` in the api folder, using port
 
 to run the vite application run ```npm run dev``` in the OrderUp folder using port :3000.
 
-You can register your own user or use one of our test users, ```username: test password: testpass```
+You can register your own user to get started.
 
 The node.js server must be running in order for the vite application to access the mongoDB
 
