@@ -10,7 +10,7 @@
                     <div class="foodPic">
                     </div>
                     <div class="infoRight">
-                        <p>Name: Burger</p>
+                        <p>Name: {{itemname}}</p>
                         <p>Order Id: 1</p>
                         <p>Quantity: 1</p>
                         <p>Total: <strong>$44.94</strong></p>
@@ -28,6 +28,14 @@
 
 export default{
     name: 'OrderDetail',
+    props: {
+        user: Function
+    },
+    data() {
+        return {
+            itemname: this.user[0].cart[1].title,
+        };
+    },
 }
 </script>
 

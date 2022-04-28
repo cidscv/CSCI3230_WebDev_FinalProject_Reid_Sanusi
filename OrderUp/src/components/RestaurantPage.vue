@@ -80,10 +80,10 @@ export default{
         return {
             menu: [],
             cats: [],
-            cart: ["hi"],
+            cart: [],
             user: Function,
             username: Login.methods.getUsername(),
-            currentRestaurant: "",
+            currentRestaurant: {item: "Burger", price: "5.66", cat: "Burger"},
             currentMenuItem: "",
             currentIndex: -1,
             route: this.$route,
@@ -121,7 +121,7 @@ export default{
     setActiveMenuItem(menuitem, index) {
       this.currentMenuItem = menuitem;
       this.currentIndex = index;
-      //this.cart.push(this.currentMenuItem);
+      this.cart.push(this.currentMenuItem);
       console.log(this.currentMenuItem);
     },
     filterByCat(cat) {
