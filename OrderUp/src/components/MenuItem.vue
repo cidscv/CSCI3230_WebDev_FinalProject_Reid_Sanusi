@@ -11,44 +11,17 @@
 </template>
 
 <script>
-import cartMixin from "../js/cartMixin"
 export default {
     name: 'MenuItem',
     props: {
         menuname: String,
         price: String,
     },
-    mixins: [
-        cartMixin
-    ],
-    methods: {
-        add_prod(e) {
-            this.addProduct(e);
-        },
-        toggle: function(e) {
-             this.toggleCart(e);
-        },
-        
-        open: function() {
-            this.toggleCart()
-        },
-        close: function() {
-           this.closeCart()
-        },
-        remove: function() {
-           this.removeProduct()
-        },
-    },
 }
 </script>
 
 <style lang="scss">
 
-
-.burger {
-    padding: 20px;
-    height: 200px;
-}
 .restaurantCard .content .mainText{
     font-weight: 600;
     color:#9f0000;;

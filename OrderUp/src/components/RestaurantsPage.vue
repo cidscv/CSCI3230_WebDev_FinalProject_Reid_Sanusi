@@ -45,7 +45,6 @@ export default {
       RestaurantDataService.getAll()
         .then(response => {
           this.restaurants = response.data;
-          console.log(response.data);
         })
         .catch(e => {
           console.log(e);

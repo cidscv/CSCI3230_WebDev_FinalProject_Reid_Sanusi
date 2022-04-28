@@ -6,11 +6,11 @@
 
         <div class="links">
             <router-link to="/">Home</router-link>
-            <router-link to="/restaurants">Restaurants</router-link>
+            <router-link v-if="isLoggedIn" to="/restaurants">Restaurants</router-link>
             <router-link to="/contact">Contact Us</router-link>
             <router-link to="/login" v-if="!isLoggedIn">Login</router-link>
             <router-link style="text-decoration: none;" to="/account" v-if="isLoggedIn">Profile</router-link> 
-            <router-link v-on:click="logout" to="/" v-if="isLoggedIn">Logout</router-link> 
+            <a v-on:click="logout" href="/" v-if="isLoggedIn">Logout</a> 
             <router-link to="#" >    
                 <img
                 src="../assets/shopping-cart.svg"

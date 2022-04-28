@@ -107,7 +107,6 @@
                 this.user[0].email = this.email;
                 this.user[0].state = this.state;
                 this.user[0].country = this.country;
-                console.log(this.user[0]);
                 UserDataService.update(this.user[0]["id"], this.user[0]);
                 alert("User profile has been updated!");
 

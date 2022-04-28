@@ -15,9 +15,5 @@ export default {
   data() {
     return {};
   }
-  
-  //components: {
-  //  LoginForm
-  //}
 }
 </script>

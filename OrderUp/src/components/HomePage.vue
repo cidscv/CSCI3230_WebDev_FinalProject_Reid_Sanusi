@@ -4,14 +4,20 @@
         <div class="cta">
             <h1>Fresh Food.<br>Fast Food.<br>Real Food.</h1>
             <p>We welcome you to sit back, unwind and appreciate the lovely sights and hints of  life while our best gourmet restuarants set you up a scrumptious dinner utilizing the best and freshest ingredients. Our legacy comes from our relentless energy to cook and serve solid, amazing gourmet food.</p> 
-            <router-link to="/restaurants">View all Restaurants</router-link>
+            <router-link v-if="isLoggedIn" to="/restaurants">View all Restaurants</router-link>
         </div>
     </section>
 </template>
 
 <script>
+import auth from "../js/auth"
 export default {
     name: 'HomeView',
+    data(){
+        return{
+            isLoggedIn: auth.isLoggedIn(),
+        };
+    }
 }
 </script>
 

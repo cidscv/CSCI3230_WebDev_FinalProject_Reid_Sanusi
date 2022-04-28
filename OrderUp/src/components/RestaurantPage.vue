@@ -164,7 +164,6 @@ export default{
   },
   mounted() {
     this.message = '';
-    console.log("working")
     this.getRestaurant(this.$route.params.id);
   }
 }; 
