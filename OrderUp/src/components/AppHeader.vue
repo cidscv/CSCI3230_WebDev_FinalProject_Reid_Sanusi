@@ -1,6 +1,6 @@
 <template>
 <div class="header">
-    <p v-if="!isLoggedIn"  style="text-align:center;" class="banner">Please unlock full capabilies</p>
+    <p v-if="!isLoggedIn"  style="text-align:center;" class="banner">Please login to unlock full capabilies</p>
     <div class="navigation">
         <router-link to="/"> <img src="../assets/logo-07.png" alt="Order Up Logo"></router-link>
 
