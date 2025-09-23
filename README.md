@@ -1,4 +1,4 @@
-# CSCI3230_WebDev_FinalProject_Reid_Sanusi
+# OrderUp
 
 This is the repository for the final group project in CSCI3230 Web Applications Development at Ontario Tech University by Owen Reid, Dami Sanusi
 
